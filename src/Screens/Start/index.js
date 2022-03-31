@@ -24,11 +24,6 @@ import { SliderBox } from "react-native-image-slider-box"
 import ViewSlider from 'react-native-view-slider'
 import { styles } from './styles'
 import Slider from '../../Components/silder'
-const images = [
-    require('../../static/images/Welcome _1.png'),
-    require('../../static/images/Welcome _2.png'),
-    require('../../static/images/Welcome _3.png'),
-]
 
 
 export default function App() {
