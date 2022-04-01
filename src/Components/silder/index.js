@@ -13,8 +13,7 @@ import {
     View,
     FlatList,
     ImageBackground,
-    StyleSheet,
-    Image
+
 
 } from 'react-native';
 import Logo from '../../Icons/logo'
@@ -22,6 +21,7 @@ import Undot from '../../Icons/undot'
 import Dot from '../../Icons/dot'
 import Goto from '../../Icons/goto'
 import { styles } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 const DATA = [
     {
@@ -42,21 +42,21 @@ const DATA = [
     },
 ];
 export default function App() {
-    const [index, setindex] = useState(0)
-
-
+    const navigation = useNavigation();
     var _dot = [];
 
-    for (let i = 0; i < DATA.length; i++) {
-        var temp = (
-            <View key={i}>
-                {
-                    DATA[i].position === index ? <Dot style={styles.dot} /> : <Undot style={styles.dot} />
-                }
-            </View>
-        )
-        _dot[i] = temp
- 
+    const find = (u) => {
+        for (let i = 0; i < DATA.length; i++) {
+            var temp = (
+                <View key={i}>
+                    {
+                        DATA[i].position === u ? <Dot style={styles.dot} /> : <Undot style={styles.dot} />
+                    }
+                </View>
+            )
+            _dot[i] = temp
+
+        }
     }
 
 
@@ -70,9 +70,10 @@ export default function App() {
                 <Text style={styles.title}>Welcome to
                     {'\n'} Ho Chi Minh City</Text>
                 <View style={styles.view_dot}>
+                    {find(position)}
                     {_dot}
                 </View>
-                {position === 2 ? <Goto style={styles.goto} /> : null}
+                {position === 2 ? <Goto style={styles.goto} onPress={() => navigation.navigate('Sign_in_up')} /> : null}
 
             </View>
 
@@ -93,7 +94,7 @@ export default function App() {
             showsHorizontalScrollIndicator={true}
             pagingEnabled
             bounces={false}
-            onMomentumScrollEnd={()=>console.log('len')}
+
         />
     );
 }
