@@ -9,24 +9,22 @@
 import React, { useEffect, useState } from 'react';
 
 import {
-    Text,
     View,
-    FlatList,
-    ImageBackground,
-    StyleSheet,
-    Image,
-    SafeAreaView,
-    TouchableOpacity,
     TextInput
-
 } from 'react-native';
 import EmailIcon from '../../Icons/email'
 import Lock from '../../Icons/lock'
 import User from '../../Icons/user'
 import { styles } from './styles';
-export default function App({ text, type }) {
+import { createStore } from 'redux';
+
+import allReducter from '../../Redux';
+
+const store = createStore(allReducter);
+
+export default function App({ text, icon }) {
     var choose = null
-    switch (type) {
+    switch (icon) {
         case 0:
             choose = <EmailIcon style={styles.icon} />
             break;
@@ -39,13 +37,17 @@ export default function App({ text, type }) {
         default:
         // code block
     }
-
+    const [input, setInput] = useState('')
+    const onChangetext = (e) => {
+        setInput(e);
+    }
     return (
         <View style={styles.Textput}>
             {choose}
             <TextInput
                 style={styles.input}
                 placeholder={text}
+                onChangeText={e => onChangetext(e)}
             />
         </View>
     )

@@ -1,3 +1,4 @@
+import { StyleSheet } from "react-native";
 export const Colors = {
     primary: "#FF301B",
     second: "#fff",
@@ -6,5 +7,7 @@ export const Colors = {
     fifth: "#F5F5F5",
     sixth: "#E5E5E5",
     seventh: "#FFFFFF",
-    eighth: "#000000"
+    eighth: "#000000",
+    nine: '#EDEDED',
+
 }

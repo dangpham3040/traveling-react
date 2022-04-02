@@ -10,12 +10,11 @@ export const styles = StyleSheet.create({
     },
     Buttonpage:
     {
-        flex: 1,
         marginTop: 50,
         marginRight: 30,
         marginLeft: 30,
         marginBottom: 25,
-
+        height:'16%'
     },
     body:
     {
@@ -23,7 +22,7 @@ export const styles = StyleSheet.create({
     },
     Background:
     {
-        marginTop: 100,
+     marginTop:250
     },
     title_view: {
         flexDirection: 'row',

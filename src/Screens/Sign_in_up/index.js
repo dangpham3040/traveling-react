@@ -13,6 +13,7 @@ import {
     View,
     SafeAreaView,
     TouchableOpacity,
+
 } from 'react-native';
 import Logo from '../../Icons/logo'
 import Background from '../../Icons/mark_logo'
@@ -22,24 +23,25 @@ import Facebook from '../../Icons/facebook'
 
 import Textinput from '../../Components/textinput'
 import { styles } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 export default function App() {
+    const navigation = useNavigation();
     const [choose, setchoose] = useState(false)
     const handle_choose = () => {
         choose ? setchoose(false) : setchoose(true)
+      
     }
 
     return (
-
         <SafeAreaView style={styles.full}>
             <View style={styles.logo}>
                 <Logo />
             </View>
-
             <View style={styles.Buttonpage}>
                 <View style={styles.title_view}>
                     <TouchableOpacity style={choose === false ? styles.isclick : styles.isnotclick} onPress={handle_choose}>
-                        <Text style={choose === false ? styles._title : styles.title}> Login</Text>
+                        <Text style={choose === false ? styles._title : styles.title} > Login</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={choose === true ? styles.isclick : styles.isnotclick} onPress={handle_choose}>
                         <Text style={choose === true ? styles._title : styles.title}> Sign Up</Text>
@@ -47,10 +49,10 @@ export default function App() {
                 </View>
                 {choose ?
                     <View style={styles.body}>
-                        <Textinput text={'Username'} type={2} />
-                        <Textinput text={'Email'} type={1} />
-                        <Textinput text={'Password'} type={1} />
-                        <Textinput text={'Confirm Password'} type={1} />
+                        <Textinput text={'Username'} icon={2} />
+                        <Textinput text={'Email'} icon={1} />
+                        <Textinput text={'Password'} icon={1} />
+                        <Textinput text={'Confirm Password'} icon={1} />
                         <TouchableOpacity style={styles.button}>
                             <Text style={styles.text_button}>Sign Up</Text>
                         </TouchableOpacity>
@@ -64,14 +66,15 @@ export default function App() {
                                 <Text style={styles.text_link}> Privacy Policy</Text>
                             </View>
                         </View>
+
                     </View>
                     :
                     <View style={styles.body}>
-                        <Textinput text={'Email'} type={0} />
-                        <Textinput text={'Password'} type={1} />
+                        <Textinput text={'Email'} icon={0} />
+                        <Textinput text={'Password'} icon={1} />
                         <Text style={styles.Forgot}>Forgot Password</Text>
                         <TouchableOpacity style={styles.button}>
-                            <Text style={styles.text_button}>Login</Text>
+                            <Text style={styles.text_button} onPress={()=>navigation.navigate('Home')}>Login</Text>
                         </TouchableOpacity>
                         <View style={styles.or}>
                             <View style={styles.line} />
@@ -87,13 +90,13 @@ export default function App() {
                             <Text style={styles.skip}>Skip</Text>
                         </TouchableOpacity>
                     </View>}
-
-
             </View>
             <View style={styles.Background}>
                 <Background />
             </View>
+
         </SafeAreaView>
+
     )
 
 }

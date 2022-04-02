@@ -23,6 +23,9 @@ import Goto from '../../Icons/goto'
 import { styles } from './styles';
 import { useNavigation } from '@react-navigation/native';
 
+import { useSelector, useDispatch } from 'react-redux';
+import allReducter from '../../Redux';
+import { createStore } from 'redux';
 const DATA = [
     {
         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -42,6 +45,8 @@ const DATA = [
     },
 ];
 export default function App() {
+    const store = createStore(allReducter);
+    const dispatch = useDispatch();
     const navigation = useNavigation();
     var _dot = [];
 
@@ -73,7 +78,10 @@ export default function App() {
                     {find(position)}
                     {_dot}
                 </View>
-                {position === 2 ? <Goto style={styles.goto} onPress={() => navigation.navigate('Sign_in_up')} /> : null}
+                {position === 2 ? <Goto style={styles.goto} onPress={() => navigation.navigate('Sign_in_up') &
+                    store.dispatch({
+                        type: 'set_fist'
+                    })} /> : null}
 
             </View>
 
