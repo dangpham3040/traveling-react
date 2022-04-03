@@ -84,7 +84,7 @@ export const styles = StyleSheet.create({
             shadowColor: "#EDEDED",
             shadowOffset: {
                 width: 0,
-                height: 0,
+                height: 2,
             },
             shadowOpacity: 0.51,
             shadowRadius: 10,
@@ -105,9 +105,11 @@ export const styles = StyleSheet.create({
     },
     view_type: {
         marginTop: 24,
-        marginBottom: 40,
-        overflow: 'hidden',
-        paddingHorizontal:24
+        top: 24,
+    },
+    view_type_item: {
+        marginLeft: 30,
+        marginRight: -6
     },
     item_pic: {
         height: 65,
@@ -117,7 +119,46 @@ export const styles = StyleSheet.create({
     item_name: {
         fontWeight: 'bold',
         fontSize: 10,
-        color: Colors.eighth,
+        color: Colors.ten,
+        textAlign: 'center',
+        marginTop: 6,
+        opacity: 60,
+        marginBottom: 24,
+    },
+    view_hotnew: {
+        marginTop: 24,
+        marginHorizontal: 30
+    },
+    Category: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    titleCategory: {
+        textAlign: 'left',
+        fontSize: 18,
+        color: Colors.eleven,
+    },
+    view_all: {
+        fontSize: 14,
+        color: Colors.primary,
+        alignSelf: 'flex-end',
         textAlign: 'center'
+    },
+    Image_hotnew: {
+        flex: 1,
+        height: 120,
+        width: 140,
+        borderRadius: 5,
+        marginTop: 12,
+        marginLeft: 30,
+        marginRight: -18,
+
+    },
+    Image_top: {
+        width: 240,
+        height: 260,
+        borderRadius: 5,
+        marginLeft:30,
+        marginRight:-18
     }
 })

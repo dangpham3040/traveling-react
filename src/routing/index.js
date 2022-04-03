@@ -22,8 +22,9 @@ export default function App() {
         <NavigationContainer>
             <Stack.Navigator >
                 {/* {isfist ? <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} /> : null} */}
-                <Stack.Screen name="Sign_in_up" component={Sign_in_up} options={{ headerShown: false }} />
                 <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+                <Stack.Screen name="Sign_in_up" component={Sign_in_up} options={{ headerShown: false }} />
+             
             </Stack.Navigator>
         </NavigationContainer>
 

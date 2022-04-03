@@ -15,7 +15,8 @@ import {
     ImageBackground,
     View,
     TextInput,
-    Image
+    Image,
+    ScrollView
 } from 'react-native';
 import Undot from '../../Icons/_undot'
 import Dot from '../../Icons/_dot'
@@ -25,6 +26,8 @@ import Seach from '../../Icons/seach'
 import { styles } from './styles';
 const DATA = Silders.DATA
 const TYPE = Silders.TYPE
+const HOTNEW = Silders.HOTNEW
+const TOPPLACE = Silders.TOPPLACE
 export default function App() {
     var _dot = [];
 
@@ -68,7 +71,7 @@ export default function App() {
         <Item title={item.title} pic={item.pic} position={item.position} temperature={item.temperature} place={item.place} name_place={item.name_place} />
     );
     const Item_type = ({ pic, name }) => (
-        <View style={styles.view_type}>
+        <View style={styles.view_type_item}>
             <Image source={pic} style={styles.item_pic} />
             <Text style={styles.item_name}>{name}</Text>
         </View>
@@ -76,20 +79,33 @@ export default function App() {
     const renderItem_type = ({ item }) => (
         <Item_type pic={item.pic} name={item.name} />
     );
+    const Item_Hotniew = ({ pic }) => (
+        <Image source={pic} style={styles.Image_hotnew} />
+    );
+    const renderItem_Hotniew = ({ item }) => (
+        <Item_Hotniew pic={item.pic} />
+    );
+    const Item_TopPlaces = ({ pic }) => (
+        <Image source={pic} style={styles.Image_top} />
+    );
+    const renderItem_TopPlaces = ({ item }) => (
+        <Item_TopPlaces pic={item.pic} />
+    );
     return (
-        <SafeAreaView style={styles.full}>
-            <View    style={{backgroundColor:'red',height:230}}>
-            <FlatList
-                numColumns={1}
-                data={DATA}
-                renderItem={renderItem}
-                keyExtractor={item => item.position}
-                horizontal={true}
-                scrollEnabled
-                showsHorizontalScrollIndicator={false}
-                pagingEnabled
-                bounces={false}
-            />
+        <ScrollView style={styles.full}>
+
+            <View style={{ backgroundColor: 'red', height: 230 }}>
+                <FlatList
+                    numColumns={1}
+                    data={DATA}
+                    renderItem={renderItem}
+                    keyExtractor={item => item.position}
+                    horizontal={true}
+                    scrollEnabled
+                    showsHorizontalScrollIndicator={false}
+                    pagingEnabled
+                    bounces={false}
+                />
             </View>
             <View style={[styles.view_seach, styles.shadow]}>
                 <View style={styles.Seach}>
@@ -103,13 +119,43 @@ export default function App() {
                     data={TYPE}
                     renderItem={renderItem_type}
                     horizontal={true}
-                    scrollEnabled
                     showsHorizontalScrollIndicator={false}
-                    pagingEnabled
-                    bounces={false}
+                    scrollEnabled
                 />
             </View>
-        </SafeAreaView>
+            <View style={styles.view_hotnew}>
+                <View style={styles.Category}>
+                    <Text style={styles.titleCategory}>Hot New</Text>
+                    <Text style={styles.view_all}>View All</Text>
+                </View>
+            </View>
+
+            <FlatList
+                numColumns={1}
+                data={HOTNEW}
+                renderItem={renderItem_Hotniew}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                scrollEnabled
+            />
+
+            <View style={styles.view_hotnew}>
+                <View style={styles.Category}>
+                    <Text style={styles.titleCategory}>Top Places</Text>
+                    <Text style={styles.view_all}>View All</Text>
+                </View>
+            </View>
+            <FlatList
+                numColumns={1}
+                data={TOPPLACE}
+                renderItem={renderItem_TopPlaces}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                scrollEnabled
+            />
+            
+
+        </ScrollView>
     )
 
 }

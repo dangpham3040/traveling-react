@@ -92,4 +92,32 @@ export const Silders = {
             name:'Transportation'
         },
     ],
+    HOTNEW:[
+        {
+            id: 0,
+            pic: require('../../static/images/hotnew1.jpeg'),
+        },
+        {
+            id: 1,
+            pic: require('../../static/images/hotnew2.jpeg'),
+        },
+        {
+            id: 2,
+            pic: require('../../static/images/hotnew3.jpeg'),
+        },
+        {
+            id: 3,
+            pic: require('../../static/images/hotnew4.jpeg'),
+        },
+    ],
+    TOPPLACE:[
+        {
+            id: 0,
+            pic: require('../../static/images/TopPlaces1.png'),
+        },
+        {
+            id: 1,
+            pic: require('../../static/images/TopPlaces2.png'),
+        },
+    ]
 }
