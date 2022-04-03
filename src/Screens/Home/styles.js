@@ -127,7 +127,8 @@ export const styles = StyleSheet.create({
     },
     view_hotnew: {
         marginTop: 24,
-        marginHorizontal: 30
+        marginHorizontal: 30,
+        marginBottom:12
     },
     Category: {
         flexDirection: 'row',
@@ -137,6 +138,7 @@ export const styles = StyleSheet.create({
         textAlign: 'left',
         fontSize: 18,
         color: Colors.eleven,
+      
     },
     view_all: {
         fontSize: 14,
@@ -149,7 +151,6 @@ export const styles = StyleSheet.create({
         height: 120,
         width: 140,
         borderRadius: 5,
-        marginTop: 12,
         marginLeft: 30,
         marginRight: -18,
 
@@ -160,5 +161,31 @@ export const styles = StyleSheet.create({
         borderRadius: 5,
         marginLeft:30,
         marginRight:-18
+    },
+    map_image:{
+        marginTop:24,
+        height:216,
+        width:414,
+    },
+    Image_1:{
+        width: 154,
+        height:200,
+        borderRadius:5,
+        marginLeft:30,
+        marginRight:6
+    },
+    Image_2:{
+        width:194,
+        height:104,
+        borderRadius:5,
+        marginBottom:5
+    },
+    Image_3:
+    {
+        width:94,
+        height:90,
+        borderRadius:5,
+        marginRight:6
     }
+
 })

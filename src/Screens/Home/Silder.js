@@ -119,5 +119,27 @@ export const Silders = {
             id: 1,
             pic: require('../../static/images/TopPlaces2.png'),
         },
+    ],
+    TOPPOP:[
+        {
+            id: 0,
+            pic: require('../../static/images/pop1.jpeg'),
+            position:0
+        },
+        {
+            id: 1,
+            pic: require('../../static/images/pop2.jpeg'),
+            position:1
+        },
+        {
+            id: 2,
+            pic: require('../../static/images/pop3.jpeg'),
+            position:2
+        },
+        {
+            id: 3,
+            pic: require('../../static/images/pop3.jpeg'),
+            position:3
+        },
     ]
 }

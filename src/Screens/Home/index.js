@@ -28,6 +28,7 @@ const DATA = Silders.DATA
 const TYPE = Silders.TYPE
 const HOTNEW = Silders.HOTNEW
 const TOPPLACE = Silders.TOPPLACE
+const TOPPOP = Silders.TOPPOP
 export default function App() {
     var _dot = [];
 
@@ -91,6 +92,32 @@ export default function App() {
     const renderItem_TopPlaces = ({ item }) => (
         <Item_TopPlaces pic={item.pic} />
     );
+    const switchcase = (position, pic) => {
+        switch (position) {
+            case 0:
+                return (<Image source={pic} style={styles.Image_1} />)
+            case 1:
+                return (<Image source={pic} style={styles.Image_2} />)
+            case 2:
+                return (<Image source={pic} style={styles.Image_3} />)
+            case 3:
+                return (<Image source={pic} style={styles.Image_3} />)
+        }
+    }
+    const Item_TopPop = ({ pic, position }) => (
+        // <View>
+        //     {switchcase(position, pic)}
+        // </View>
+        // }
+        <View>
+            {position === 0 ? switchcase(position, pic) :
+             position===1?<View style={{flexDirection: 'column'}}>{switchcase(position,pic)}</View>:
+             position>1?<View style={{flexDirection: 'row'}}>{switchcase(position,pic)}</View>:null}
+        </View>
+    );
+    const renderItem_TopPop = ({ item }) => (
+        <Item_TopPop pic={item.pic} position={item.position} />
+    );
     return (
         <ScrollView style={styles.full}>
 
@@ -153,16 +180,24 @@ export default function App() {
                 showsHorizontalScrollIndicator={false}
                 scrollEnabled
             />
-            
+            <View style={styles.view_hotnew}>
+                <View style={styles.Category}>
+                    <Text style={styles.titleCategory}>Top popular</Text>
+                    <Text style={styles.view_all}>View All</Text>
+                </View>
+            </View>
+            <FlatList
+                numColumns={1}
+                data={TOPPOP}
+                renderItem={renderItem_TopPop}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                scrollEnabled
+            />
+            <Image source={require('../../static/images/map.png')} style={styles.map_image} />
+
 
         </ScrollView>
     )
 
 }
-
-
-
-
-
-
-

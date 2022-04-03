@@ -1,6 +1,6 @@
 
 const initProduct = {
-    Email: 'd',
+    Email: '',
     Password: '',
     Username: '',
     Confirm_Password: '',
@@ -10,10 +10,11 @@ const initProduct = {
 export const counterReducer = (state = initProduct, action) => {
     switch (action.type) {
         case "set_fist":
-            state = false
-            return state;
+            initProduct.isfist = false
+            console.log(initProduct.isfist + "")
+            return initProduct;
         default:
-            return state;
+            return initProduct.isfist;
 
     }
 }
