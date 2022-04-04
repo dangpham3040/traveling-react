@@ -11,6 +11,7 @@ import Profile from '../Screens/Profile'
 import Edit_Profile from '../Screens/Edit_Profile'
 import Setiing from '../Screens/Setting'
 import Change_Password from '../Screens/Change_Password'
+import Main from '../Screens/Main'
 
 import { useSelector } from 'react-redux';
 
@@ -25,14 +26,15 @@ export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator >
-                {isfist ? <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} /> : null}
-                {console.log('check: ' + isfist)}
+                {/* {isfist ? <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} /> : null}
+                {console.log('check: ' + isfist)} */}
                 <Stack.Screen name="Sign_in_up" component={Sign_in_up} options={{ headerShown: false }} />
                 <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
                 <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
                 <Stack.Screen name="Edit_Profile" component={Edit_Profile} options={{ headerShown: false }} />
                 <Stack.Screen name="Setiing" component={Setiing} options={{ headerShown: false }} />
                 <Stack.Screen name="Change_Password" component={Change_Password} options={{ headerShown: false }} />
+                <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
             </Stack.Navigator>
             {/* <Tab.Navigator>
                 <Stack.Screen name="Sign_in_up" component={Sign_in_up} options={{ headerShown: false }} />

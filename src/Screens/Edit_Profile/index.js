@@ -11,10 +11,7 @@ import React, { useEffect, useState } from 'react';
 import {
     Text,
     View,
-    FlatList,
     ImageBackground,
-    Image,
-    ScrollView,
     TouchableOpacity
 
 } from 'react-native';
@@ -36,7 +33,7 @@ export default function App() {
                 <Textinput icon={0} type={1} value={'brooklyn.simmons @gmail.com'} />
                 <TouchableOpacity style={styles.button}>
                     <Text style={styles.text_button}>Save Changes</Text>
-                    <View style={styles.line}/>
+                    <View style={styles.line} />
                 </TouchableOpacity>
             </View>
         </View>

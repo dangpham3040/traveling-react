@@ -63,9 +63,6 @@ export default function App() {
 
         }
     }
-
-
-
     const Item = ({ pic, position }) => (
         <ImageBackground source={pic} style={styles.ImageBackground}>
             <View style={styles.item}>

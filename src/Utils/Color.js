@@ -11,6 +11,6 @@ export const Colors = {
     nine: '#EDEDED',
     ten: '#666666',
     eleven: '#2e2e2e',
-    dim:'#797979'
+    dim: '#797979'
 
 }

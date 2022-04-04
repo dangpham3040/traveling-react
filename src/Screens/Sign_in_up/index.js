@@ -47,7 +47,7 @@ export default function App() {
             <View style={styles.Buttonpage}>
                 <View style={styles.title_view}>
                     <TouchableOpacity style={choose === false ? styles.isclick : styles.isnotclick} onPress={handle_choose}>
-                        <Text style={choose === false ? styles._title : styles.title} > Login</Text>
+                        <Text style={choose === false ? styles._title : styles.title} >Login</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={choose === true ? styles.isclick : styles.isnotclick} onPress={handle_choose}>
                         <Text style={choose === true ? styles._title : styles.title}> Sign Up</Text>
@@ -80,7 +80,7 @@ export default function App() {
                         <Textinput text={'Password'} icon={1} type={2} />
                         <Text style={styles.Forgot}>Forgot Password</Text>
                         <TouchableOpacity style={styles.button}>
-                            <Text style={styles.text_button} onPress={() =>navigation.navigate('Home')}>Login</Text>
+                            <Text style={styles.text_button} onPress={() =>navigation.navigate('Main')}>Login</Text>
                         </TouchableOpacity>
                         <View style={styles.or}>
                             <View style={styles.line} />
