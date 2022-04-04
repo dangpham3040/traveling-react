@@ -10,6 +10,7 @@ export const Colors = {
     eighth: "#000000",
     nine: '#EDEDED',
     ten: '#666666',
-    eleven: '#2e2e2e'
+    eleven: '#2e2e2e',
+    dim:'#797979'
 
 }

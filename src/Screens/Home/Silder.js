@@ -96,18 +96,22 @@ export const Silders = {
         {
             id: 0,
             pic: require('../../static/images/hotnew1.jpeg'),
+            position: 0,
         },
         {
             id: 1,
             pic: require('../../static/images/hotnew2.jpeg'),
+            position: 1,
         },
         {
             id: 2,
             pic: require('../../static/images/hotnew3.jpeg'),
+            position: 2,
         },
         {
             id: 3,
             pic: require('../../static/images/hotnew4.jpeg'),
+            position: 3,
         },
     ],
     TOPPLACE:[

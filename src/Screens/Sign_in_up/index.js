@@ -15,6 +15,7 @@ import {
     TouchableOpacity,
 
 } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import Logo from '../../Icons/logo'
 import Background from '../../Icons/mark_logo'
 import Google from '../../Icons/google'
@@ -22,6 +23,8 @@ import Apple from '../../Icons/apple'
 import Facebook from '../../Icons/facebook'
 
 import Textinput from '../../Components/textinput'
+import allReducter from '../../Redux';
+import { createStore } from 'redux';
 import { styles } from './styles';
 import { useNavigation } from '@react-navigation/native';
 
@@ -30,9 +33,12 @@ export default function App() {
     const [choose, setchoose] = useState(false)
     const handle_choose = () => {
         choose ? setchoose(false) : setchoose(true)
-      
-    }
 
+    }
+    const store = createStore(allReducter);
+    const dispatch = useDispatch();
+    const email = useSelector(state => [state.Email])
+    // const pass = useSelector(state => state.Password)
     return (
         <SafeAreaView style={styles.full}>
             <View style={styles.logo}>
@@ -49,10 +55,10 @@ export default function App() {
                 </View>
                 {choose ?
                     <View style={styles.body}>
-                        <Textinput text={'Username'} icon={2} />
-                        <Textinput text={'Email'} icon={1} />
-                        <Textinput text={'Password'} icon={1} />
-                        <Textinput text={'Confirm Password'} icon={1} />
+                        <Textinput text={'Username'} icon={2} type={0} />
+                        <Textinput text={'Email'} icon={1} type={1} />
+                        <Textinput text={'Password'} icon={1} type={2} />
+                        <Textinput text={'Confirm Password'} icon={1} type={3} />
                         <TouchableOpacity style={styles.button}>
                             <Text style={styles.text_button}>Sign Up</Text>
                         </TouchableOpacity>
@@ -70,11 +76,11 @@ export default function App() {
                     </View>
                     :
                     <View style={styles.body}>
-                        <Textinput text={'Email'} icon={0} />
-                        <Textinput text={'Password'} icon={1} />
+                        <Textinput text={'Email'} icon={0} type={1} />
+                        <Textinput text={'Password'} icon={1} type={2} />
                         <Text style={styles.Forgot}>Forgot Password</Text>
                         <TouchableOpacity style={styles.button}>
-                            <Text style={styles.text_button} onPress={()=>navigation.navigate('Home')}>Login</Text>
+                            <Text style={styles.text_button} onPress={() =>navigation.navigate('Home')}>Login</Text>
                         </TouchableOpacity>
                         <View style={styles.or}>
                             <View style={styles.line} />
