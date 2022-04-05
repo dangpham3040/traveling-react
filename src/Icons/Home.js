@@ -16,8 +16,8 @@ function SvgComponent(props) {
         fill={props.fill}
         stroke={props.stroke}
         strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeLinecap={"square"}
+      
       />
     </Svg>
   )

@@ -17,7 +17,8 @@ import {
     TextInput,
     Image,
     ScrollView,
-    TouchableOpacity
+    TouchableOpacity,
+    TouchableWithoutFeedback
 } from 'react-native';
 import Undot from '../../Icons/_undot'
 import Dot from '../../Icons/_dot'
@@ -51,7 +52,7 @@ export default function App() {
     const Item = ({ pic, position, temperature, place, name_place }) => (
         <ImageBackground source={pic} style={styles.ImageBackground}>
             <View style={styles.item}>
-                <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
                     <Image source={require('../../static/images/avt.jpeg')} style={styles.avatar} />
                 </TouchableOpacity>
                 <View style={styles.view_cloud}>
@@ -125,12 +126,13 @@ export default function App() {
                         bounces={false}
                     />
                 </View>
-                <View style={[styles.view_seach, styles.shadow]}>
-                    <View style={styles.Seach}>
-                        <Seach />
+                <TouchableWithoutFeedback onPress={() => navigation.navigate('Seach')}>
+                    <View style={[styles.view_seach, styles.shadow]} >
+                        <View style={styles.Seach}>
+                            <Seach />
+                        </View>
                     </View>
-                    <TextInput style={{ flex: 1 }} />
-                </View>
+                </TouchableWithoutFeedback>
                 <View style={styles.view_type}>
                     <FlatList
                         numColumns={1}

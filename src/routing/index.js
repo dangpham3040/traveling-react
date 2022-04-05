@@ -12,6 +12,7 @@ import Edit_Profile from '../Screens/Edit_Profile'
 import Setiing from '../Screens/Setting'
 import Change_Password from '../Screens/Change_Password'
 import Main from '../Screens/Main'
+import Seach from '../Screens/Seach'
 
 import { useSelector } from 'react-redux';
 
@@ -35,6 +36,7 @@ export default function App() {
                 <Stack.Screen name="Setiing" component={Setiing} options={{ headerShown: false }} />
                 <Stack.Screen name="Change_Password" component={Change_Password} options={{ headerShown: false }} />
                 <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
+                <Stack.Screen name="Seach" component={Seach} options={{ headerShown: false }} />
             </Stack.Navigator>
             {/* <Tab.Navigator>
                 <Stack.Screen name="Sign_in_up" component={Sign_in_up} options={{ headerShown: false }} />

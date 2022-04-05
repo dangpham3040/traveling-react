@@ -14,17 +14,17 @@ import {
     TouchableOpacity
 
 } from 'react-native';
-import Header from '../../Components/header'
-import Textinput from '../../Components/textinput'
-import { NavigationContainer } from '@react-navigation/native';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../../Screens/Home'
-import Profile from '../../Screens/Profile'
+import Seach from '../../Screens/Seach'
 import HomeIcon from '../../Icons/Home'
 import HeartIcon from '../../Icons/heart'
+import Share from '../../Icons/share'
+import Img from '../../Icons/image'
+import More from '../../Icons/more'
 import { Colors } from '../../Utils/Color';
-import { LogBox } from 'react-native';
-import { styles } from './styles';
+
 export default function App() {
     const Tab = createBottomTabNavigator()
     const [srceen, setSrceen] = useState(0)
@@ -33,11 +33,19 @@ export default function App() {
         < Tab.Navigator
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
-                    let iconName;
                     if (route.name === 'Home') {
-                        return <HomeIcon name={iconName} size={size} color={color} fill={color} stroke={srceen === 0 ? Colors.second : Colors.eighth} />;
-                    } else if (route.name === 'Profile') {
-                        return <HeartIcon name={iconName} size={size} color={color} fill={color} stroke={srceen === 1 ? Colors.primary : Colors.eighth} />;
+                        return <HomeIcon size={size} color={srceen === 0 ? Colors.second : Colors.eighth} fill={srceen === 0 ? Colors.primary : Colors.eighth} />;
+                    } else if (route.name === 'Seach') {
+                        return <HeartIcon size={size} color={srceen === 1 ? Colors.primary : Colors.eighth} fill={color} stroke={srceen === 1 ? Colors.primary : Colors.eighth} />;
+                    }
+                    else if (route.name === 'Share') {
+                        return <Share size={size} color={srceen === 1 ? Colors.primary : Colors.eighth} fill={color} stroke={srceen === 1 ? Colors.primary : Colors.eighth} />;
+                    }
+                    else if (route.name === 'Img') {
+                        return <Img size={size} color={srceen === 1 ? Colors.primary : Colors.eighth} stroke={srceen === 1 ? Colors.primary : Colors.eighth} />;
+                    }
+                    else if (route.name === 'More') {
+                        return <More size={size} color={srceen === 1 ? Colors.primary : Colors.eighth} stroke={srceen === 1 ? Colors.primary : Colors.eighth} />;
                     }
                 },
             })
@@ -53,7 +61,7 @@ export default function App() {
                         setSrceen(0)
                     },
                 })} />
-            <Tab.Screen name="Profile" component={Profile} options={{ headerShown: false }}
+            <Tab.Screen name="Seach" component={Seach} options={{ headerShown: false }}
                 listeners={() => ({
                     tabPress: () => {
                         setSrceen(1)
@@ -61,7 +69,7 @@ export default function App() {
                 })} />
 
         </Tab.Navigator >
-  
+
     );
 }
 
