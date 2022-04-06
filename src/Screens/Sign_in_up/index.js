@@ -78,9 +78,9 @@ export default function App() {
                     <View style={styles.body}>
                         <Textinput text={'Email'} icon={0} type={1} />
                         <Textinput text={'Password'} icon={1} type={2} />
-                        <Text style={styles.Forgot}>Forgot Password</Text>
+                        <Text style={styles.Forgot} onPress={() => navigation.navigate('Forgot_Password')}>Forgot Password</Text>
                         <TouchableOpacity style={styles.button}>
-                            <Text style={styles.text_button} onPress={() =>navigation.navigate('Main')}>Login</Text>
+                            <Text style={styles.text_button} onPress={() => navigation.navigate('Main')}>Login</Text>
                         </TouchableOpacity>
                         <View style={styles.or}>
                             <View style={styles.line} />

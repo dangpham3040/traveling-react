@@ -75,7 +75,9 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 10,
         flexWrap: "wrap",
-        marginRight: 10
+        marginRight: 40,
+        fontWeight:'700'
+      
     },
     Heart: {
         position: 'absolute',

@@ -20,6 +20,7 @@ import {
 
 } from 'react-native';
 import Header from '../../Components/header'
+import { Colors } from '../../Utils/Color';
 import { styles } from './styles';
 export default function App({ navigation }) {
     const DATA = [

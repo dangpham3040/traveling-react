@@ -13,6 +13,8 @@ import Setiing from '../Screens/Setting'
 import Change_Password from '../Screens/Change_Password'
 import Main from '../Screens/Main'
 import Seach from '../Screens/Seach'
+import HotNew from '../Screens/Hot_New'
+import Forgot_Password from '../Screens/Forgot_Password'
 
 import { useSelector } from 'react-redux';
 
@@ -26,9 +28,9 @@ export default function App() {
     const isfist = true
     return (
         <NavigationContainer>
-            <Stack.Navigator >
-                {/* {isfist ? <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} /> : null}
-                {console.log('check: ' + isfist)} */}
+            <Stack.Navigator initialRouteName='Sign_in_up'>
+                {isfist ? <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} /> : null}
+                {console.log('check: ' + isfist)}
                 <Stack.Screen name="Sign_in_up" component={Sign_in_up} options={{ headerShown: false }} />
                 <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
                 <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
@@ -37,6 +39,8 @@ export default function App() {
                 <Stack.Screen name="Change_Password" component={Change_Password} options={{ headerShown: false }} />
                 <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
                 <Stack.Screen name="Seach" component={Seach} options={{ headerShown: false }} />
+                <Stack.Screen name="HotNew" component={HotNew} options={{ headerShown: false }} />
+                <Stack.Screen name="Forgot_Password" component={Forgot_Password} options={{ headerShown: false }} />
             </Stack.Navigator>
             {/* <Tab.Navigator>
                 <Stack.Screen name="Sign_in_up" component={Sign_in_up} options={{ headerShown: false }} />

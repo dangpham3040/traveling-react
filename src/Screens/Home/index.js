@@ -56,7 +56,7 @@ export default function App() {
                     <Image source={require('../../static/images/avt.jpeg')} style={styles.avatar} />
                 </TouchableOpacity>
                 <View style={styles.view_cloud}>
-                    <Cloud />
+                    <Cloud onPress={()=>navigation.navigate('HotNew')}/>
                     <Text style={styles.text_temperature}>{temperature + "\u00b0"}C</Text>
                 </View>
                 <View style={styles.view_location}>
@@ -86,7 +86,7 @@ export default function App() {
         <Item_type pic={item.pic} name={item.name} />
     );
     const Item_Hotniew = ({ pic, position }) => (
-        <Image source={pic} style={position === HOTNEW.length - 1 ? styles.Image_hotnew_last : styles.Image_hotnew} />
+        <Image source={pic} style={position === HOTNEW.length  ? styles.Image_hotnew_last : styles.Image_hotnew} />
     );
     const renderItem_Hotniew = ({ item }) => (
         <Item_Hotniew pic={item.pic} position={HOTNEW.indexOf(item)+1} />
@@ -118,12 +118,13 @@ export default function App() {
                         numColumns={1}
                         data={DATA}
                         renderItem={renderItem}
-                        keyExtractor={item => item.position}
+                        keyExtractor={item => item.id}
                         horizontal={true}
                         scrollEnabled
                         showsHorizontalScrollIndicator={false}
                         pagingEnabled
                         bounces={false}
+               
                     />
                 </View>
                 <TouchableWithoutFeedback onPress={() => navigation.navigate('Seach')}>
@@ -141,6 +142,7 @@ export default function App() {
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}
                         scrollEnabled
+                        keyExtractor={item => item.id}
                     />
                 </View>
                 <View style={styles.view_hotnew}>
