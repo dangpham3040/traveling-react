@@ -33,15 +33,15 @@ const TYPE = Silders.TYPE
 const HOTNEW = Silders.HOTNEW
 const TOPPLACE = Silders.TOPPLACE
 const TOPPOP = Silders.TOPPOP
-export default function App() {
-    const navigation = useNavigation();
+export default function App({ navigation }) {
+    // const navigation = useNavigation();
     var _dot = [];
     const find = (u) => {
         for (let i = 0; i < DATA.length; i++) {
             var temp = (
                 <View key={i}>
                     {
-                        DATA.indexOf( DATA[i]) === u ? <Dot style={styles.dot} /> : <Undot style={styles.dot} />
+                        DATA.indexOf(DATA[i]) === u ? <Dot style={styles.dot} /> : <Undot style={styles.dot} />
                     }
                 </View>
             )
@@ -56,7 +56,7 @@ export default function App() {
                     <Image source={require('../../static/images/avt.jpeg')} style={styles.avatar} />
                 </TouchableOpacity>
                 <View style={styles.view_cloud}>
-                    <Cloud onPress={()=>navigation.navigate('HotNew')}/>
+                    <Cloud onPress={() => navigation.navigate('HotNew')} />
                     <Text style={styles.text_temperature}>{temperature + "\u00b0"}C</Text>
                 </View>
                 <View style={styles.view_location}>
@@ -74,7 +74,7 @@ export default function App() {
         </ImageBackground>
     );
     const renderItem = ({ item }) => (
-        <Item title={item.title} pic={item.pic} position={DATA.indexOf(item)} temperature={item.temperature} place={item.place} name_place={item.name_place}  />
+        <Item title={item.title} pic={item.pic} position={DATA.indexOf(item)} temperature={item.temperature} place={item.place} name_place={item.name_place} />
     );
     const Item_type = ({ pic, name }) => (
         <View style={styles.view_type_item}>
@@ -86,10 +86,10 @@ export default function App() {
         <Item_type pic={item.pic} name={item.name} />
     );
     const Item_Hotniew = ({ pic, position }) => (
-        <Image source={pic} style={position === HOTNEW.length  ? styles.Image_hotnew_last : styles.Image_hotnew} />
+        <Image source={pic} style={position === HOTNEW.length ? styles.Image_hotnew_last : styles.Image_hotnew} />
     );
     const renderItem_Hotniew = ({ item }) => (
-        <Item_Hotniew pic={item.pic} position={HOTNEW.indexOf(item)+1} />
+        <Item_Hotniew pic={item.pic} position={HOTNEW.indexOf(item) + 1} />
     );
     const Item_TopPlaces = ({ pic }) => (
         <Image source={pic} style={styles.Image_top} />
@@ -124,7 +124,7 @@ export default function App() {
                         showsHorizontalScrollIndicator={false}
                         pagingEnabled
                         bounces={false}
-               
+
                     />
                 </View>
                 <TouchableWithoutFeedback onPress={() => navigation.navigate('Seach')}>
@@ -148,7 +148,10 @@ export default function App() {
                 <View style={styles.view_hotnew}>
                     <View style={styles.Category}>
                         <Text style={styles.titleCategory}>Hot New</Text>
-                        <Text style={styles.view_all}>View All</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('Category', { name: 'Hot New', })}>
+                            <Text style={styles.view_all}>View All</Text>
+                        </TouchableOpacity>
+
                     </View>
                 </View>
 
@@ -164,7 +167,9 @@ export default function App() {
                 <View style={styles.view_hotnew}>
                     <View style={styles.Category}>
                         <Text style={styles.titleCategory}>Top Places</Text>
-                        <Text style={styles.view_all}>View All</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('Category', { name: 'Top Places', })}>
+                            <Text style={styles.view_all}>View All</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <FlatList
@@ -178,7 +183,9 @@ export default function App() {
                 <View style={styles.view_hotnew}>
                     <View style={styles.Category}>
                         <Text style={styles.titleCategory}>Top popular</Text>
-                        <Text style={styles.view_all}>View All</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('Category', { name: 'Top popular', })}>
+                            <Text style={styles.view_all} >View All</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.view_TopPop}>

@@ -4,7 +4,7 @@ import { Colors } from '../../Utils/Color';
 
 export const styles = StyleSheet.create({
     view_header: {
-        height: 70,
+        height: 62,
         backgroundColor: '#fff',
         width: '100%',
         position: 'relative',
@@ -14,7 +14,8 @@ export const styles = StyleSheet.create({
         paddingRight: 30,
         paddingTop: 24,
         justifyContent: 'space-between',
-        backgroundColor:Colors.primary
+        backgroundColor:Colors.primary,
+        marginBottom:30
       
     },
     dim:{

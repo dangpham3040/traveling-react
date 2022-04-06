@@ -26,7 +26,6 @@
              </View>
              <View style={styles.body}>
                  <Textinput icon={0} text={'Email'} />
-              
                  <TouchableOpacity style={styles.button}>
                      <Text style={styles.text_button}>Save Changes</Text>
                      <View style={styles.line} />
