@@ -57,13 +57,45 @@ export const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 14
     },
-    body:{
-        marginHorizontal:30,
-        marginTop:24
+    body: {
+        marginHorizontal: 30,
+        marginTop: 24
     },
-    title:{
-        fontWeight:'800',
-        fontSize:18,
+    title: {
+        fontWeight: '800',
+        fontSize: 18,
         color: Colors.eleven
+    },
+    item: {
+
+        height: 154,
+        width: '100%',
+        flexDirection: 'column',
+        borderTopLeftRadius:5,
+        borderTopRightRadius:5
+    },
+    text_mustdo: {
+        fontSize: 10,
+        color: Colors.eighth,
+        marginLeft:12,
+
+    },
+    item_name: {
+        color: Colors.eighth,
+        fontSize: 14,
+        marginLeft:12,
+        marginBottom:12
+
+    },
+    view_item: {
+        paddingHorizontal: 30,
+        paddingVertical:12,
+        borderBottomLeftRadius:5,
+        borderBottomRightRadius:5
+    },
+    view_item_text: {
+        backgroundColor: Colors.fifth,
+        
+      
     }
 })

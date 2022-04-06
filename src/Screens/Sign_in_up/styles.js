@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
         marginRight: 30,
         marginLeft: 30,
         marginBottom: 25,
-        height:'16%'
+        height: '16%'
     },
     body:
     {
@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
     },
     Background:
     {
-     marginTop:250
+        marginTop: 250
     },
     title_view: {
         flexDirection: 'row',
@@ -86,11 +86,11 @@ export const styles = StyleSheet.create({
     },
     signinto: {
         flex: 1,
-        marginTop: 40,
+
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'center',
-        marginLeft:20
+        marginLeft: 20
 
     },
     company_logo: {
@@ -100,7 +100,8 @@ export const styles = StyleSheet.create({
         height: '10%',
         width: '100%',
         marginTop: 40,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginBottom: 40,
     },
     line:
     {
@@ -109,23 +110,22 @@ export const styles = StyleSheet.create({
         borderBottomWidth: 1,
     },
     or_text: {
-        position:'relative',
         fontWeight: '400',
-        paddingTop:8,
+        paddingTop: 20,
         paddingRight: 15,
         paddingLeft: 15,
         color: Colors.fourth,
-        fontSize: 14
+        fontSize: 14,
     },
-    skip:{
-        marginTop:50,
+    skip: {
+        marginTop: 50,
         textAlign: 'center',
         fontWeight: '700',
         color: Colors.fourth,
     },
     text_link:
     {
-        color:Colors.primary,
+        color: Colors.primary,
         textDecorationLine: 'underline',
         fontWeight: '400'
     },
@@ -133,7 +133,7 @@ export const styles = StyleSheet.create({
     {
         fontWeight: '400'
     },
-    terms:{
-        flexDirection: 'column' ,marginTop:25
+    terms: {
+        flexDirection: 'column', marginTop: 25
     }
 })

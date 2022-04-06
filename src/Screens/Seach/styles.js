@@ -7,18 +7,18 @@ export const styles = StyleSheet.create({
         backgroundColor: Colors.second
     },
     view_seach: {
-        flex:1,
-      
+        flex: 1,
+
         flexDirection: 'row',
         backgroundColor: Colors.second,
         borderRadius: 5,
         width: 354,
         height: 50,
-        marginHorizontal:30,
+        marginHorizontal: 30,
         borderColor: Colors.nine,
         borderWidth: 1,
-        marginTop:24,
-        marginBottom:24
+        marginTop: 24,
+        marginBottom: 24
     },
     shadow: {
         shadowColor: "#EDEDED",
@@ -33,22 +33,54 @@ export const styles = StyleSheet.create({
     Seach: {
         padding: 15
     },
-    item_name:{
-        fontSize:14,
+    item_name_type: {
+        fontSize: 14,
         fontWeight: 'bold',
         color: Colors.third,
-        paddingLeft:40,
-        paddingRight:-28,
+        paddingLeft: 40,
+        paddingRight: -28,
+        marginBottom: 70
     },
-    _item_name:{
-        fontSize:14,
+    _item_name_type: {
+        fontSize: 14,
         fontWeight: 'bold',
         color: Colors.third,
-        paddingLeft:40,
-        paddingRight:12,
+        paddingLeft: 40,
+        paddingRight: 12,
+        marginBottom: 70
     },
-    item_choose:{
+    item_choose: {
         color: Colors.primary,
+    },
+    view_item: {
+        flex: 1,
+        height: 160,
+        width: 354,
+        marginBottom: 12,
+        marginRight: 30,
+        marginLeft: 30
+    },
+    view_item_text: {
+        position: 'absolute',
+        bottom: 0,
+        left: 10
+    },
+    text_item: {
+        fontSize: 10,
+        color: Colors.second,
+    },
+    item_name: {
+        color: Colors.second,
+        fontSize: 14,
+        fontWeight: 'bold',
+        marginBottom: 10,
+        flexWrap: "wrap",
+        marginRight: 10
+    },
+    Heart: {
+        position: 'absolute',
+        top: 16,
+        right: 16
     }
 
 })

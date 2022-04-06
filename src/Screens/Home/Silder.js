@@ -3,7 +3,6 @@ export const Silders = {
         {
             id: 0,
             pic: require('../../static/images/Silder1.jpeg'),
-            position: 0,
             temperature: 30,
             place: 'Q1, Ho Chi Minh City',
             name_place: 'Ben Nha Rong'
@@ -11,7 +10,6 @@ export const Silders = {
         {
             id: 1,
             pic: require('../../static/images/Silder2.jpeg'),
-            position: 1,
             temperature: 30,
             place: 'Q1, Ho Chi Minh City',
             name_place: 'Ben Nha Rong'
@@ -19,7 +17,6 @@ export const Silders = {
         {
             id: 2,
             pic: require('../../static/images/Silder3.png'),
-            position: 2,
             temperature: 30,
             place: 'Q1, Ho Chi Minh City',
             name_place: 'Ben Nha Rong'
@@ -27,7 +24,6 @@ export const Silders = {
         {
             id: 3,
             pic: require('../../static/images/Silder4.jpeg'),
-            position: 3,
             temperature: 30,
             place: 'Q1, Ho Chi Minh City',
             name_place: 'Ben Nha Rong'
@@ -35,7 +31,6 @@ export const Silders = {
         {
             id: 4,
             pic: require('../../static/images/Silder5.jpeg'),
-            position: 4,
             temperature: 30,
             place: 'Q1, Ho Chi Minh City',
             name_place: 'Ben Nha Rong'
@@ -43,7 +38,6 @@ export const Silders = {
         {
             id: 5,
             pic: require('../../static/images/Silder6.jpeg'),
-            position: 5,
             temperature: 30,
             place: 'Q1, Ho Chi Minh City',
             name_place: 'Ben Nha Rong'
@@ -51,7 +45,6 @@ export const Silders = {
         {
             id: 6,
             pic: require('../../static/images/Silder7.jpeg'),
-            position: 6,
             temperature: 30,
             place: 'Q1, Ho Chi Minh City',
             name_place: 'Ben Nha Rong'
@@ -59,7 +52,6 @@ export const Silders = {
         {
             id: 7,
             pic: require('../../static/images/Silder8.jpeg'),
-            position: 7,
             temperature: 30,
             place: 'Q1, Ho Chi Minh City',
             name_place: 'Ben Nha Rong'
@@ -96,22 +88,22 @@ export const Silders = {
         {
             id: 0,
             pic: require('../../static/images/hotnew1.jpeg'),
-            position: 0,
+       
         },
         {
             id: 1,
             pic: require('../../static/images/hotnew2.jpeg'),
-            position: 1,
+           
         },
         {
             id: 2,
             pic: require('../../static/images/hotnew3.jpeg'),
-            position: 2,
+           
         },
         {
             id: 3,
             pic: require('../../static/images/hotnew4.jpeg'),
-            position: 3,
+           
         },
     ],
     TOPPLACE:[
@@ -128,22 +120,22 @@ export const Silders = {
         {
             id: 0,
             pic: require('../../static/images/pop1.jpeg'),
-            position:0
+           
         },
         {
             id: 1,
             pic: require('../../static/images/pop2.jpeg'),
-            position:1
+            
         },
         {
             id: 2,
             pic: require('../../static/images/pop3.jpeg'),
-            position:2
+            
         },
         {
             id: 3,
             pic: require('../../static/images/pop3.jpeg'),
-            position:3
+            
         },
     ]
 }

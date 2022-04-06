@@ -53,7 +53,6 @@ export default function App() {
             tabBarOptions={{
                 activeTintColor: Colors.primary,
                 inactiveTintColor: Colors.second,
-
             }}>
             <Tab.Screen name="Home" component={Home} options={{ headerShown: false, }}
                 listeners={() => ({

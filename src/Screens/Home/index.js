@@ -41,7 +41,7 @@ export default function App() {
             var temp = (
                 <View key={i}>
                     {
-                        DATA[i].position === u ? <Dot style={styles.dot} /> : <Undot style={styles.dot} />
+                        DATA.indexOf( DATA[i]) === u ? <Dot style={styles.dot} /> : <Undot style={styles.dot} />
                     }
                 </View>
             )
@@ -74,7 +74,7 @@ export default function App() {
         </ImageBackground>
     );
     const renderItem = ({ item }) => (
-        <Item title={item.title} pic={item.pic} position={item.position} temperature={item.temperature} place={item.place} name_place={item.name_place} />
+        <Item title={item.title} pic={item.pic} position={DATA.indexOf(item)} temperature={item.temperature} place={item.place} name_place={item.name_place}  />
     );
     const Item_type = ({ pic, name }) => (
         <View style={styles.view_type_item}>
@@ -89,7 +89,7 @@ export default function App() {
         <Image source={pic} style={position === HOTNEW.length - 1 ? styles.Image_hotnew_last : styles.Image_hotnew} />
     );
     const renderItem_Hotniew = ({ item }) => (
-        <Item_Hotniew pic={item.pic} position={item.position} />
+        <Item_Hotniew pic={item.pic} position={HOTNEW.indexOf(item)+1} />
     );
     const Item_TopPlaces = ({ pic }) => (
         <Image source={pic} style={styles.Image_top} />
