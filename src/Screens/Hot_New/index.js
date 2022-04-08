@@ -88,37 +88,39 @@ export default function App({ navigation }) {
     );
     return (
         <ScrollView style={styles.full}>
-            <ImageBackground styles={styles.image} source={require('../../static/images/weather.jpeg')}>
-                <View style={styles.view_image}>
-                    <View style={styles.view_header}>
-                        <TouchableOpacity onPress={()=>navigation.goBack()}>
-                            <Goback stroke={'#fff'} />
-                        </TouchableOpacity>
+            <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} >
+                <ImageBackground styles={styles.image} source={require('../../static/images/weather.jpeg')}>
+                    <View style={styles.view_image}>
+                        <View style={styles.view_header}>
+                            <TouchableOpacity onPress={() => navigation.goBack()}>
+                                <Goback stroke={'#fff'} />
+                            </TouchableOpacity>
 
-                        <Text style={styles.today}>Today</Text>
-                    </View>
-                    <View style={styles.view_header_body}>
-                        <Cloud style={styles.Cloud} />
-                        <Text style={styles.text_temperature}>30{"\u00b0"}C</Text>
-                        <Text style={styles.name}>Scattered Clouds</Text>
-                    </View>
-                    <View style={styles.view_header_footer}>
-                        <View style={styles.weather}>
-                            <Humidity />
-                            <Text style={styles.text_weather}>70</Text>
+                            <Text style={styles.today}>Today</Text>
                         </View>
-                        <View style={styles.weather}>
-                            <Umbrella />
-                            <Text style={styles.text_weather}>1002</Text>
+                        <View style={styles.view_header_body}>
+                            <Cloud style={styles.Cloud} />
+                            <Text style={styles.text_temperature}>30{"\u00b0"}C</Text>
+                            <Text style={styles.name}>Scattered Clouds</Text>
                         </View>
-                        <View style={styles.weather}>
-                            <Wind />
-                            <Text style={styles.text_weather}>6m/s</Text>
+                        <View style={styles.view_header_footer}>
+                            <View style={styles.weather}>
+                                <Humidity />
+                                <Text style={styles.text_weather}>70</Text>
+                            </View>
+                            <View style={styles.weather}>
+                                <Umbrella />
+                                <Text style={styles.text_weather}>1002</Text>
+                            </View>
+                            <View style={styles.weather}>
+                                <Wind />
+                                <Text style={styles.text_weather}>6m/s</Text>
+                            </View>
                         </View>
-                    </View>
 
-                </View>
-            </ImageBackground>
+                    </View>
+                </ImageBackground>
+            </LinearGradient>
             <FlatList
                 numColumns={1}
                 data={DATA}

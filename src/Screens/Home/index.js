@@ -76,14 +76,14 @@ export default function App({ navigation }) {
     const renderItem = ({ item }) => (
         <Item title={item.title} pic={item.pic} position={DATA.indexOf(item)} temperature={item.temperature} place={item.place} name_place={item.name_place} />
     );
-    const Item_type = ({ pic, name }) => (
-        <View style={styles.view_type_item}>
+    const Item_type = ({ pic, name,index }) => (
+        <TouchableOpacity style={styles.view_type_item} onPress={() => navigation.navigate('Category', { name: name,index: index })}>
             <Image source={pic} style={styles.item_pic} />
             <Text style={styles.item_name}>{name}</Text>
-        </View>
+        </TouchableOpacity>
     );
     const renderItem_type = ({ item }) => (
-        <Item_type pic={item.pic} name={item.name} />
+        <Item_type pic={item.pic} name={item.name} index={TYPE.indexOf(item)}/>
     );
     const Item_Hotniew = ({ pic, position }) => (
         <Image source={pic} style={position === HOTNEW.length ? styles.Image_hotnew_last : styles.Image_hotnew} />
@@ -148,7 +148,7 @@ export default function App({ navigation }) {
                 <View style={styles.view_hotnew}>
                     <View style={styles.Category}>
                         <Text style={styles.titleCategory}>Hot New</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Category', { name: 'Hot New', })}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Category', { name: 'Hot New', index:5})}>
                             <Text style={styles.view_all}>View All</Text>
                         </TouchableOpacity>
 
@@ -167,7 +167,7 @@ export default function App({ navigation }) {
                 <View style={styles.view_hotnew}>
                     <View style={styles.Category}>
                         <Text style={styles.titleCategory}>Top Places</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Category', { name: 'Top Places', })}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Category', { name: 'Top Places',index:6})}>
                             <Text style={styles.view_all}>View All</Text>
                         </TouchableOpacity>
                     </View>
@@ -183,7 +183,7 @@ export default function App({ navigation }) {
                 <View style={styles.view_hotnew}>
                     <View style={styles.Category}>
                         <Text style={styles.titleCategory}>Top popular</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Category', { name: 'Top popular', })}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Category', { name: 'Top popular', index:7})}>
                             <Text style={styles.view_all} >View All</Text>
                         </TouchableOpacity>
                     </View>

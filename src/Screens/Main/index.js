@@ -18,6 +18,7 @@ import {
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../../Screens/Home'
 import Seach from '../../Screens/Seach'
+import Favorite from '../../Screens/Favorite'
 import HomeIcon from '../../Icons/Home'
 import HeartIcon from '../../Icons/heart'
 import Share from '../../Icons/share'
@@ -35,7 +36,7 @@ export default function App() {
                 tabBarIcon: ({ focused, color, size }) => {
                     if (route.name === 'Home') {
                         return <HomeIcon size={size} color={srceen === 0 ? Colors.second : Colors.eighth} fill={srceen === 0 ? Colors.primary : Colors.eighth} />;
-                    } else if (route.name === 'Seach') {
+                    } else if (route.name === 'My Trip') {
                         return <HeartIcon size={size} color={srceen === 1 ? Colors.primary : Colors.eighth} fill={color} stroke={srceen === 1 ? Colors.primary : Colors.eighth} />;
                     }
                     else if (route.name === 'Share') {
@@ -60,7 +61,7 @@ export default function App() {
                         setSrceen(0)
                     },
                 })} />
-            <Tab.Screen name="Seach" component={Seach} options={{ headerShown: false }}
+            <Tab.Screen name="My Trip" component={Favorite} options={{ headerShown: false }}
                 listeners={() => ({
                     tabPress: () => {
                         setSrceen(1)

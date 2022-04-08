@@ -32,7 +32,8 @@ export default function App({ navigation }) {
             pic: require('../../static/images/Silder1.jpeg'),
             temperature: 30,
             place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce']
+            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
+            start: 2
         },
         {
             id: 1,
@@ -40,12 +41,14 @@ export default function App({ navigation }) {
             temperature: 30,
             place: 'Q1, Ho Chi Minh City',
             dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce']
+            , start: 2
         },
         {
             id: 2,
             pic: require('../../static/images/Silder3.png'),
             place: 'Q1, Ho Chi Minh City',
             dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce']
+            , start: 2
         },
         {
             id: 3,
@@ -53,6 +56,7 @@ export default function App({ navigation }) {
             temperature: 30,
             place: 'Q1, Ho Chi Minh City',
             dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce']
+            , start: 2
         },
         {
             id: 4,
@@ -60,6 +64,7 @@ export default function App({ navigation }) {
             temperature: 30,
             place: 'Q1, Ho Chi Minh City',
             dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce']
+            , start: 2
         },
         {
             id: 5,
@@ -67,6 +72,7 @@ export default function App({ navigation }) {
             temperature: 30,
             place: 'Q1, Ho Chi Minh City',
             dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce']
+            , start: 2
         },
         {
             id: 6,
@@ -74,12 +80,14 @@ export default function App({ navigation }) {
             temperature: 30,
             place: 'Q1, Ho Chi Minh City',
             dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce']
+            , start: 2
         },
         {
             id: 7,
             pic: require('../../static/images/Silder8.jpeg'),
             place: 'Q1, Ho Chi Minh City',
             dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce']
+            , start: 2
         },
     ]
     const TYPE = ['ALL', 'Must Do', 'Eat & Drink', 'Festival & Event', 'Stay', 'Transportation']
@@ -94,7 +102,7 @@ export default function App({ navigation }) {
     const Item = ({ pic, name }) => (
         <ImageBackground style={styles.view_item} source={pic} imageStyle={{ borderRadius: 5 }}>
             <View style={styles.Heart}>
-                <Heart  stroke={Colors.second}/>
+                <Heart stroke={Colors.second} />
             </View>
             <View style={styles.view_item_text}>
                 <Text style={styles.text_item}>EAT & DRINK</Text>
@@ -106,6 +114,8 @@ export default function App({ navigation }) {
     const renderItem = ({ item }) => (
         <Item pic={item.pic} position={item.position} name={item.dec} />
     );
+    const startlist=[]
+    
     return (
         <ScrollView style={styles.full}>
             <Header name={'Seach'} />

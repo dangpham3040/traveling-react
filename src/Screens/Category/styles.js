@@ -1,6 +1,7 @@
 import { Dimensions } from 'react-native';
 import { StyleSheet } from "react-native";
 import { Colors } from '../../Utils/Color';
+import { Fonts } from '../../Utils/Fonts';
 
 export const styles = StyleSheet.create({
     full: {
@@ -86,38 +87,81 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         marginLeft: 12,
         marginBottom: 12,
-        bottom:0,
+        bottom: 0,
         fontWeight: '800',
-        
+
     },
-    item_name_dec:{
+    item_name_dec: {
         position: 'absolute',
         color: Colors.second,
         fontSize: 14,
         marginLeft: 12,
         marginBottom: 12,
-        bottom:0,
+        bottom: 0,
         fontWeight: 'bold',
         marginBottom: 10,
         flexWrap: "wrap",
         marginRight: 40,
-        fontWeight:'700'
+        fontWeight: '700'
     },
     view_item: {
         marginLeft: 30,
         marginRight: 30,
         borderBottomLeftRadius: 5,
         borderBottomRightRadius: 5,
-        marginBottom:12,
+        marginBottom: 12,
         height: 160,
-        width: 360
+        width: 360,
+
     },
     view_item_text: {
         backgroundColor: Colors.fifth,
     },
-    Heart:{
+    Heart: {
         position: 'absolute',
-        right:16,
-        top:16
+        right: 16,
+        top: 16
+    },
+    view_item_stay: {
+        borderRadius: 5,
+        height: 180,
+        height: 172,
+        marginRight: 12,
+        marginBottom: 6,
+        borderRadius: 5
+    },
+    item_stay_img: {
+        height: 95,
+        width: 171
+    },
+    item_footer: {
+        position: 'absolute',
+        backgroundColor: Colors.fifth,
+        height: 76,
+        width: '100%',
+        bottom: 0,
+        flexDirection: 'column'
+    },
+    item_text: {
+        marginLeft: 10,
+        borderBottomRightRadius: 5,
+        borderBottomLeftRadius: 5,
+        color: Colors.eleven,
+        fontFamily: Fonts.font_700,
+        fontSize: 14,
+        marginTop: 12,
+        flexWrap: "wrap",
+        marginRight: 20,
+        fontWeight:'700'
+
+    },
+    view_star_item: {
+       marginTop:6,
+        flexDirection: 'row',
+        paddingLeft:10
+    },
+    star_item:{
+        paddingHorizontal:4
     }
+
 })

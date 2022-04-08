@@ -12,6 +12,8 @@ export const Colors = {
     ten: '#666666',
     eleven: '#2e2e2e',
     twelveth: '#1F82C8',
+    thirteenth: '#FBBB4A',
     dim: '#797979',
+
 
 }
