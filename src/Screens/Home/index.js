@@ -27,14 +27,13 @@ import Location from '../../Icons/location'
 import Seach from '../../Icons/seach'
 import { styles } from './styles';
 import { useNavigation } from '@react-navigation/native';
-// import  TabNavigation  from '../../Components/header';
 const DATA = Silders.DATA
 const TYPE = Silders.TYPE
 const HOTNEW = Silders.HOTNEW
 const TOPPLACE = Silders.TOPPLACE
 const TOPPOP = Silders.TOPPOP
 export default function App({ navigation }) {
-    // const navigation = useNavigation();
+
     var _dot = [];
     const find = (u) => {
         for (let i = 0; i < DATA.length; i++) {

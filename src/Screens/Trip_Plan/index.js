@@ -11,20 +11,39 @@ import React, { useEffect, useState } from 'react';
 import {
     Text,
     View,
-    ImageBackground,
+    SafeAreaView,
     TouchableOpacity,
     Image,
+    ScrollView,
     FlatList,
-    ScrollView
+    TouchableWithoutFeedback,
+    TextInput
 
 } from 'react-native';
-import Going_trip from '../../Components/going_trip'
+import { useSelector, useDispatch } from 'react-redux';
+import Header from '../../Components/header_type';
+import Seach from '../../Icons/seach'
+import Item_trip_plan from '../../Components/item_trip_plan'
+import { createStore } from 'redux';
 import { styles } from './styles';
-import Item_going_trip from '../../Components/item_going_trip'
-export default function App({navigation}) {
 
-    const renderItem = ({ item ,}) => (
-        <Item_going_trip pic={item.pic} position={DATA.indexOf(item)} name={item.name} />
+
+
+export default function App({ navigation }) {
+    const [position, setPosition] = useState(0)
+    const TYPE = ['1', '2', '3', '4', '5', '6', '7']
+    const renderItem_type = ({ item }) => (
+        <Item_type name={item} index={TYPE.indexOf(item)} />
+    );
+    const Item_type = ({ name, index }) => (
+        <TouchableWithoutFeedback onPress={() => setPosition(index)}>
+            <View style={[styles.view_item, styles.item, position === index ? styles.item_choose : null]}>
+                <Text style={styles.text_item} >Day {name}</Text>
+            </View>
+        </TouchableWithoutFeedback>
+    );
+    const renderItem = ({ item, }) => (
+        <Item_trip_plan pic={item.pic} position={DATA.indexOf(item)} name={item.name} />
     );
     const DATA = [
         {
@@ -99,27 +118,40 @@ export default function App({navigation}) {
         },
     ]
     return (
-        <ScrollView style={styles.full}>
-            <View style={styles.header}>
-                <Text style={styles.header_text}>My Trip</Text>
-                <Image source={require('../../static/images/avt.jpeg')} style={styles.avatar} imageStyle={{ borderRadius: 50 }} />
+        <View style={styles.full}>
+            <Header name={'Trip Plan'} />
+          
+            <Text style={styles.name_city}>Ho Chi Minh</Text>
+            <Text style={styles.day}>10 Oct - 15 Oct</Text>
+            <FlatList
+                style={styles.listday}
+                numColumns={1}
+                data={TYPE}
+                renderItem={renderItem_type}
+                horizontal={true}
+                scrollEnabled
+                showsHorizontalScrollIndicator={false}
+                pagingEnabled
+            />
+            <View style={[styles.view_seach, styles.shadow]}>
+                <View style={styles.Seach}>
+                    <Seach />
+                </View>
+                <TextInput style={{ flex: 1 }} />
             </View>
-            <Text style={styles.text_title}>Going Trip</Text>
-            <Going_trip />
-            <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Trip_Plan')}>
-                <Text style={styles.text_button}>+  CREAT NEW TRIP</Text>
-            </TouchableOpacity>
-            <Text style={styles.text_title}>Favourites</Text>
+            <ScrollView style={styles.data}>
             <FlatList
                 numColumns={1}
                 data={DATA}
                 renderItem={renderItem}
-                showsVerticalScrollIndicator={false}
-                showsHorizontalScrollIndicator={false}
-                pagingEnabled
+                
             />
-        </ScrollView>
-    );
+            </ScrollView>
+            <Image source={require('../../static/images/map.png')} style={styles.map_image} />
+        </View>
+
+    )
+
 }
 
 

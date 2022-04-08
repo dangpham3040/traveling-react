@@ -36,11 +36,9 @@ export default function App({ text, icon, type, value }) {
             choose = <User style={styles.icon} />
             break;
         default:
-        // code block
+            break;
     }
-    const [input, setInput] = useState('')
     const onChangetext = (e) => {
-        setInput(e);
         switch (type) {
             case 0:
                 store.dispatch({

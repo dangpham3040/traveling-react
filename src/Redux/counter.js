@@ -1,15 +1,10 @@
 
 const init = {
-    Email: 'sds',
+    Email: '',
     Password: '',
     Username: '',
     Confirm_Password: '',
-    isfist: true,
-    todos: [
-        { id: 0, text: 'Learn React', completed: true },
-        { id: 1, text: 'Learn Redux', completed: false, color: 'purple' },
-        { id: 2, text: 'Build something fun!', completed: false, color: 'blue' }
-    ],
+    isfist: false,
 }
 
 export function counterReducer(state = init, action) {
@@ -18,20 +13,19 @@ export function counterReducer(state = init, action) {
             state.isfist = false
             return state;
         case "set_Email":
-            state.Email = action.Email
-            console.log('set_Email: ' + [state.Email])
+            state.Email = action.Email;
             return state;
         case "set_Password":
             state.Password = action.Password
-            console.log('set_Password: ' + [state.Password])
             return state;
         case "set_Username":
             state.Username = action.Username
-            console.log('set_Username: ' + [state.Username])
             return state;
         case "set_Confirm_Password":
             state.Confirm_Password = action.Confirm_Password
-            console.log('set_Confirm_Password: ' + [state.Confirm_Password])
+            return state;
+        case "get":
+            console.log("email: "+state.Email)
             return state;
         default:
             return state;

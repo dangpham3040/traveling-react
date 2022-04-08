@@ -17,6 +17,7 @@ import HotNew from '../Screens/Hot_New'
 import Forgot_Password from '../Screens/Forgot_Password'
 import Category from '../Screens/Category'
 import Favorite from '../Screens/Favorite'
+import Trip_Plan from '../Screens/Trip_Plan'
 
 import { useSelector } from 'react-redux';
 
@@ -45,6 +46,7 @@ export default function App() {
                 <Stack.Screen name="Forgot_Password" component={Forgot_Password} options={{ headerShown: false }} />
                 <Stack.Screen name="Category" component={Category} options={{ headerShown: false }} />
                 <Stack.Screen name="Favorite" component={Favorite} options={{ headerShown: false }} />
+                <Stack.Screen name="Trip_Plan" component={Trip_Plan} options={{ headerShown: false }} />
             </Stack.Navigator>
             {/* <Tab.Navigator>
                 <Stack.Screen name="Sign_in_up" component={Sign_in_up} options={{ headerShown: false }} />
