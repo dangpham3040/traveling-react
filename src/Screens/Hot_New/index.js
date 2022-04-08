@@ -88,8 +88,9 @@ export default function App({ navigation }) {
     );
     return (
         <ScrollView style={styles.full}>
-            <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} >
-                <ImageBackground styles={styles.image} source={require('../../static/images/weather.jpeg')}>
+
+            <ImageBackground styles={styles.image} source={require('../../static/images/weather.jpeg')}>
+                <LinearGradient colors={['rgba(0, 0, 0, 0) ,', 'rgba(0, 0, 0, 0.5)']} deg={180}  >
                     <View style={styles.view_image}>
                         <View style={styles.view_header}>
                             <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -119,8 +120,8 @@ export default function App({ navigation }) {
                         </View>
 
                     </View>
-                </ImageBackground>
-            </LinearGradient>
+                </LinearGradient>
+            </ImageBackground>
             <FlatList
                 numColumns={1}
                 data={DATA}

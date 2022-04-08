@@ -1,6 +1,6 @@
 
 const init = {
-    Email: '',
+    Email: 'sds',
     Password: '',
     Username: '',
     Confirm_Password: '',
