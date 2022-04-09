@@ -38,9 +38,9 @@ export default function App() {
     const store = createStore(allReducter);
     const dispatch = useDispatch();
 
-    const[email,setEmail]=useState('')
-    const[pass,setpass]=useState('')
-    const setifnfo=()=>{
+    const [email, setEmail] = useState('')
+    const [pass, setpass] = useState('')
+    const setifnfo = () => {
         setEmail(useSelector(state => state.Email))
         setpass(useSelector(state => state.Email))
     }
@@ -85,13 +85,7 @@ export default function App() {
                         <Textinput text={'Password'} icon={1} type={2} />
                         <Text style={styles.Forgot} onPress={() => navigation.navigate('Forgot_Password')}>Forgot Password</Text>
                         <TouchableOpacity style={styles.button}>
-
-                            <Text style={styles.text_button} onPress={() =>
-                                navigation.navigate('Main')&
-                                store.dispatch({
-                                    type: 'get',
-                                })
-                                }>Login</Text>
+                            <Text style={styles.text_button} onPress={() => navigation.navigate('Tab') & store.dispatch({ type: 'login', })}>Login</Text>
                         </TouchableOpacity>
                         <View style={styles.or}>
                             <View style={styles.line} />

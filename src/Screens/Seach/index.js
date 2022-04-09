@@ -25,6 +25,7 @@ import Heart from '../../Icons/heart_item'
 import { styles } from './styles';
 import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Item_list from '../../Components/item_Data'
 export default function App({ navigation }) {
     const TYPE = useSelector(state => state.myCounter.TYPES)
     const DATA = useSelector(state => state.myCounter.DATA)
@@ -60,20 +61,8 @@ export default function App({ navigation }) {
             <Text style={[index === list_type.length ? styles._item_name_type : styles.item_name_type, position === index ? styles.item_choose : null]} >{name}</Text>
         </TouchableWithoutFeedback>
     );
-    const Item = ({ pic, name }) => (
-        <ImageBackground style={styles.view_item} source={pic} imageStyle={{ borderRadius: 5 }}>
-            <View style={styles.Heart}>
-                <Heart stroke={Colors.second} />
-            </View>
-            <View style={styles.view_item_text}>
-                <Text style={styles.text_item}>EAT & DRINK</Text>
-                <Text style={styles.item_name}>{name}</Text>
-            </View>
-        </ImageBackground>
-
-    );
     const renderItem = ({ item }) => (
-        <Item pic={item.pic} position={item.position} name={item.dec} />
+        <Item_list pic={item.pic} name={item.dec} type={1} dec={'EAT & DRINK'} />
     );
     return (
         <ScrollView style={styles.full}>

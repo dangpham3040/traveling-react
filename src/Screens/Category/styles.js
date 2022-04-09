@@ -89,7 +89,6 @@ export const styles = StyleSheet.create({
         marginBottom: 12,
         bottom: 0,
         fontWeight: '800',
-
     },
     item_name_dec: {
         position: 'absolute',

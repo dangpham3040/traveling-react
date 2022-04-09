@@ -46,8 +46,8 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: 'bold',
         color: Colors.third,
-        paddingLeft: 40,
-        paddingRight: 12,
+        marginLeft: 40,
+        marginRight: 12,
         marginBottom: 70
     },
     item_choose: {

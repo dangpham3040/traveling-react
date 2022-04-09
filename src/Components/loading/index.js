@@ -18,7 +18,7 @@ export default function App() {
 
     return (
         <View style={styles.view_load}>
-            <Text style={styles.load}>loadling....</Text>
+            <Text style={styles.load}>Loading....</Text>
         </View>
 
     )

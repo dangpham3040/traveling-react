@@ -5,6 +5,7 @@ const init = {
     Username: '',
     Confirm_Password: '',
     isfist: false,
+    islogin: true,
     DATA: [
         {
             id: 0,
@@ -234,8 +235,8 @@ export function counterReducer(state = init, action) {
         case "set_Confirm_Password":
             state.Confirm_Password = action.Confirm_Password
             return state;
-        case "get":
-            console.log("email: " + state.Email)
+        case "login":
+            state.islogin = true
             return state;
         default:
             return state;

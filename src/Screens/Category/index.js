@@ -11,20 +11,19 @@ import React, { useEffect, useState } from 'react';
 import {
     Text,
     View,
-    TouchableOpacity,
     ScrollView,
     FlatList,
-    ImageBackground,
     Image
 
 } from 'react-native';
 import Header from '../../Components/header_type'
-import Heart from '../../Icons/heart_item'
 import Star from '../../Icons/star'
 import { Colors } from '../../Utils/Color';
 import { styles } from './styles';
 import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Item_list from '../../Components/item_Data'
+import Must_Do from '../../Screens/Must_Do'
 export default function App({ route }) {
     const DATA = useSelector(state => state.myCounter.DATA)
     const [list, setlistitem] = useState()
@@ -47,24 +46,16 @@ export default function App({ route }) {
         storeData(DATA, 'list')
         getData('list', setlistitem)
     }, [])
-    var Items = null
-    const setItem = (value) => {
-        switch (route.params.index) {
-            case 5:
-                Items = <Text style={styles.item_name_dec}>{list[value].dec}</Text>
-                break;
-            default:
-                Items = <Text style={styles.item_name}>{list[value].name}</Text>
-                break;
-        }
-    }
     var listItem = null
     const setList = () => {
         switch (route.params.index) {
+            case 0:
+                listItem = <Must_Do />
+                break;
             case 2:
                 listItem =
                     <FlatList
-                        numColumns={2}
+                        maxToRenderPerBatch={4}
                         data={list}
                         renderItem={renderItem}
                         showsHorizontalScrollIndicator={false} />
@@ -79,6 +70,14 @@ export default function App({ route }) {
                         showsHorizontalScrollIndicator={false} />
 
                 break;
+            case 5:
+                listItem =
+                    <FlatList
+                        maxToRenderPerBatch={4}
+                        data={list}
+                        renderItem={renderItem_Hotnew}
+                        showsHorizontalScrollIndicator={false} />
+                break;
             default:
                 listItem =
                     <FlatList
@@ -89,18 +88,11 @@ export default function App({ route }) {
                 break;
         }
     }
-    const Item = ({ pic, position }) => (
-        <ImageBackground style={styles.view_item} source={pic} imageStyle={{ borderRadius: 5 }}>
-            <View style={styles.Heart}>
-                <Heart stroke={Colors.second} />
-            </View>
-            {setItem(position)}
-            {Items}
-        </ImageBackground>
-
-    );
     const renderItem = ({ item }) => (
-        <Item pic={item.pic} position={list.indexOf(item)} name={item.name} dec={item.dec} />
+        <Item_list pic={item.pic} name={item.name} type={0} />
+    );
+    const renderItem_Hotnew = ({ item }) => (
+        <Item_list pic={item.pic} name={item.dec} type={1} />
     );
     var listStar = []
     const find = (u) => {
