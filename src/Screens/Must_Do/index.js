@@ -66,7 +66,7 @@ export default function App() {
                 <ImageBackground source={require('../../static/images/activities1.jpeg')} style={styles.activities1} imageStyle={{ borderRadius: 5 }} >
                     <View style={styles.item_text}>
                         <LinearGradient colors={['rgba(0, 0, 0, 0) ,', '#000000']} deg={180}  >
-                            <Text style={styles.type}>ATTRACTION</Text>
+                            <Text style={styles.type}>ACTIVITIES</Text>
                             <Text style={styles.name}>Typical Architectures</Text>
                         </LinearGradient>
                     </View>

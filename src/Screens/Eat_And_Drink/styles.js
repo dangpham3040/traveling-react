@@ -43,69 +43,37 @@ export const styles = StyleSheet.create({
         flexDirection: 'column',
         marginRight: 12
     },
-    attraction1: {
-        height: 180,
-        width: 354,
-        marginTop: 12,
-        marginBottom: 12
-    },
-    attraction2: {
-        height: 147,
-        width: 171,
-        marginBottom: 12
-    },
-    attraction3: {
-        height: 192,
-        width: 171,
-        marginBottom: 12
-    },
-    attraction4: {
-        height: 354,
-        width: 171,
-        marginBottom: 12,
-
-        marginBottom: 24
-    },
     activities1: {
         width: 354,
-        height: 150,
+        height: 160,
         marginBottom: 12,
         marginTop: 12
     },
     activities2: {
         width: 171,
-        height: 267,
+        height: 178,
         marginBottom: 12
     },
     activities3: {
         width: 171,
-        height: 223,
+        height: 248,
         marginBottom: 12
     },
     activities4: {
         width: 171,
-        height: 198
+        height: 228
     },
     activities5: {
         width: 171,
-        height: 137,
+        height: 354,
         marginBottom: 12
 
     },
     activities6: {
         width: 171,
-        height: 188,
+        height: 312,
         marginBottom: 12
     },
-    activities7: {
-        width: 171,
-        height: 153,
-        marginBottom: 12
-    },
-    activities8: {
-        width: 171,
-        height: 198,
 
-    }
 
 })

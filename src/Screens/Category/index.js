@@ -24,6 +24,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Item_list from '../../Components/item_Data'
 import Must_Do from '../../Screens/Must_Do'
+import Eat_Drink from '../../Screens/Eat_And_Drink'
 export default function App({ route }) {
     const DATA = useSelector(state => state.myCounter.DATA)
     const [list, setlistitem] = useState()
@@ -51,6 +52,9 @@ export default function App({ route }) {
         switch (route.params.index) {
             case 0:
                 listItem = <Must_Do />
+                break;
+            case 1:
+                listItem = <Eat_Drink />
                 break;
             case 2:
                 listItem =
