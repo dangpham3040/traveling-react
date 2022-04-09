@@ -14,6 +14,7 @@ export const Colors = {
     twelveth: '#1F82C8',
     thirteenth: '#FBBB4A',
     dim: '#797979',
+    button : '#2F88FF'
 
 
 }
