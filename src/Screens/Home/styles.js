@@ -192,6 +192,21 @@ export const styles = StyleSheet.create({
     view_TopPop: {
         paddingHorizontal: 30,
         flexDirection: 'row'
+    },
+    load: {
+        height: '100%',
+        width: '100%',
+        textAlign: 'center',
+        alignSelf: 'center',
+        color: Colors.primary,
+        
+    },
+    view_load: {
+        flex: 1,
+        backgroundColor: Colors.second,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignContent: 'center'
     }
 
 })

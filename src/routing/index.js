@@ -27,13 +27,13 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
 
-    const isfists = useSelector(state => state.isfist)
+    const isfists = useSelector(state => state.myCounter.isfist)
     // const isfist = true
     return (
         <NavigationContainer>
             <Stack.Navigator>
+                {console.log(isfists+'')}
                 {isfists ? <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} /> : null}
-                {console.log('check: ' + isfists)}
                 <Stack.Screen name="Sign_in_up" component={Sign_in_up} options={{ headerShown: false }} />
                 <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
                 <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />

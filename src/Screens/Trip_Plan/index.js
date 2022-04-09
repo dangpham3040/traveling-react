@@ -20,20 +20,42 @@ import {
     TextInput
 
 } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
 import Header from '../../Components/header_type';
 import Seach from '../../Icons/seach'
 import Item_trip_plan from '../../Components/item_trip_plan'
 import { createStore } from 'redux';
 import { styles } from './styles';
-
-
-
-export default function App({ navigation }) {
+import { useSelector, useDispatch } from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+export default function App() {
     const [position, setPosition] = useState(0)
-    const TYPE = ['1', '2', '3', '4', '5', '6', '7']
+    const TYPE = useSelector(state => state.myCounter.DAYNUMBER)
+    const DATA = useSelector(state => state.myCounter.DATA)
+    const [list, setlistitem] = useState()
+    const [list_type, setlistitem_type] = useState()
+    const storeData = async (value, name) => {
+        try {
+            await AsyncStorage.setItem(name, JSON.stringify(value))
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    const getData = async (name, set) => {
+        try {
+            const value = await AsyncStorage.getItem(name)
+            return value != null ? set(JSON.parse(value)) : []
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    useEffect(() => {
+        storeData(TYPE, 'list_type')
+        getData('list_type', setlistitem_type)
+        storeData(DATA, 'list')
+        getData('list', setlistitem)
+    }, [])
     const renderItem_type = ({ item }) => (
-        <Item_type name={item} index={TYPE.indexOf(item)} />
+        <Item_type name={item} index={list_type.indexOf(item)} />
     );
     const Item_type = ({ name, index }) => (
         <TouchableWithoutFeedback onPress={() => setPosition(index)}>
@@ -43,90 +65,18 @@ export default function App({ navigation }) {
         </TouchableWithoutFeedback>
     );
     const renderItem = ({ item, }) => (
-        <Item_trip_plan pic={item.pic} position={DATA.indexOf(item)} name={item.name} />
+        <Item_trip_plan pic={item.pic} position={list.indexOf(item)} name={item.name} />
     );
-    const DATA = [
-        {
-            id: 0,
-            pic: require('../../static/images/Silder1.jpeg'),
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 2
-        },
-        {
-            id: 1,
-            pic: require('../../static/images/Silder2.jpeg'),
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 2
-        },
-        {
-            id: 2,
-            pic: require('../../static/images/Silder3.png'),
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 2
-        },
-        {
-            id: 3,
-            pic: require('../../static/images/Silder4.jpeg'),
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 2
-        },
-        {
-            id: 4,
-            pic: require('../../static/images/Silder5.jpeg'),
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 2
-        },
-        {
-            id: 5,
-            pic: require('../../static/images/Silder6.jpeg'),
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 4
-        },
-        {
-            id: 6,
-            pic: require('../../static/images/Silder7.jpeg'),
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 2
-        },
-        {
-            id: 7,
-            pic: require('../../static/images/Silder8.jpeg'),
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 1
-        },
-    ]
+   
     return (
         <View style={styles.full}>
             <Header name={'Trip Plan'} />
-          
             <Text style={styles.name_city}>Ho Chi Minh</Text>
             <Text style={styles.day}>10 Oct - 15 Oct</Text>
             <FlatList
                 style={styles.listday}
                 numColumns={1}
-                data={TYPE}
+                data={list_type}
                 renderItem={renderItem_type}
                 horizontal={true}
                 scrollEnabled
@@ -142,9 +92,8 @@ export default function App({ navigation }) {
             <ScrollView style={styles.data}>
             <FlatList
                 numColumns={1}
-                data={DATA}
+                data={list}
                 renderItem={renderItem}
-                
             />
             </ScrollView>
             <Image source={require('../../static/images/map.png')} style={styles.map_image} />

@@ -23,87 +23,38 @@ import Heart from '../../Icons/heart_item'
 import Star from '../../Icons/star'
 import { Colors } from '../../Utils/Color';
 import { styles } from './styles';
+import { useSelector, useDispatch } from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function App({ route }) {
-    const DATA = [
-        {
-            id: 0,
-            pic: require('../../static/images/Silder1.jpeg'),
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 2
-        },
-        {
-            id: 1,
-            pic: require('../../static/images/Silder2.jpeg'),
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 2
-        },
-        {
-            id: 2,
-            pic: require('../../static/images/Silder3.png'),
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 2
-        },
-        {
-            id: 3,
-            pic: require('../../static/images/Silder4.jpeg'),
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 2
-        },
-        {
-            id: 4,
-            pic: require('../../static/images/Silder5.jpeg'),
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 2
-        },
-        {
-            id: 5,
-            pic: require('../../static/images/Silder6.jpeg'),
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 4
-        },
-        {
-            id: 6,
-            pic: require('../../static/images/Silder7.jpeg'),
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 2
-        },
-        {
-            id: 7,
-            pic: require('../../static/images/Silder8.jpeg'),
-            place: 'Q1, Ho Chi Minh City',
-            dec: 'In response to the Banh mi Saigon week, Chef Jack Lee presents the ' + ['Banh mi in ginger sauce'],
-            name: 'SAIGON CENTRAL POST OFFICE'
-            , star: 1
-        },
-    ]
+    const DATA = useSelector(state => state.myCounter.DATA)
+    const [list, setlistitem] = useState()
+    const storeData = async (value, name) => {
+        try {
+            await AsyncStorage.setItem(name, JSON.stringify(value))
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    const getData = async (name, set) => {
+        try {
+            const value = await AsyncStorage.getItem(name)
+            return value != null ? set(JSON.parse(value)) : []
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    useEffect(() => {
+        storeData(DATA, 'list')
+        getData('list', setlistitem)
+    }, [])
     var Items = null
     const setItem = (value) => {
         switch (route.params.index) {
             case 5:
-                Items = <Text style={styles.item_name_dec}>{DATA[value].dec}</Text>
+                Items = <Text style={styles.item_name_dec}>{list[value].dec}</Text>
                 break;
             default:
-                Items = <Text style={styles.item_name}>{DATA[value].name}</Text>
+                Items = <Text style={styles.item_name}>{list[value].name}</Text>
                 break;
         }
     }
@@ -114,7 +65,7 @@ export default function App({ route }) {
                 listItem =
                     <FlatList
                         numColumns={2}
-                        data={DATA}
+                        data={list}
                         renderItem={renderItem}
                         showsHorizontalScrollIndicator={false} />
                 break;
@@ -123,7 +74,7 @@ export default function App({ route }) {
                     <FlatList
                         style={{ marginHorizontal: 30 }}
                         numColumns={2}
-                        data={DATA}
+                        data={list}
                         renderItem={renderItem_stay}
                         showsHorizontalScrollIndicator={false} />
 
@@ -132,7 +83,7 @@ export default function App({ route }) {
                 listItem =
                     <FlatList
                         numColumns={1}
-                        data={DATA}
+                        data={list}
                         renderItem={renderItem}
                         showsHorizontalScrollIndicator={false} />
                 break;
@@ -149,16 +100,14 @@ export default function App({ route }) {
 
     );
     const renderItem = ({ item }) => (
-        <Item pic={item.pic} position={DATA.indexOf(item)} name={item.name} dec={item.dec} />
+        <Item pic={item.pic} position={list.indexOf(item)} name={item.name} dec={item.dec} />
     );
     var listStar = []
     const find = (u) => {
         for (let i = 0; i < 5; i++) {
             var temp = (
                 <View key={i} style={styles.star_item}>
-                    {
-                        i <= u ? <Star fill={Colors.thirteenth} /> : <Star />
-                    }
+                    {i < u ? <Star fill={Colors.thirteenth} /> : <Star />}
                 </View>
             )
             listStar[i] = temp
@@ -174,21 +123,18 @@ export default function App({ route }) {
                 <View style={styles.view_star_item}>
                     {listStar}
                 </View>
-
             </View>
         </View>
 
     );
     const renderItem_stay = ({ item }) => (
-        <Item_stay pic={item.pic} position={DATA.indexOf(item)} name={item.name} dec={item.dec} index={DATA.indexOf(item)} star={item.star} />
+        <Item_stay pic={item.pic} name={item.name} index={list.indexOf(item)} star={item.star} />
     );
     return (
-
         <ScrollView style={styles.full}>
             <Header name={route.params.name} />
             {setList()}
             {listItem}
-
         </ScrollView>
     );
 }

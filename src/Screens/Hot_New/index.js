@@ -7,8 +7,6 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { Colors } from '../../Utils/Color';
-import Goback from '../../Icons/goback'
 import {
     View,
     ScrollView,
@@ -22,54 +20,34 @@ import Cloud from '../../Icons/cloud_big'
 import Humidity from '../../Icons/humidity'
 import Umbrella from '../../Icons/umbrella'
 import Wind from '../../Icons/wind'
+import Goback from '../../Icons/goback'
+import { Colors } from '../../Utils/Color';
 import { styles } from './styles';
+import { useSelector, useDispatch } from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import LinearGradient from 'react-native-linear-gradient';
 export default function App({ navigation }) {
-    const DATA = [
-        {
-            id: 0,
-            temperature1: 23,
-            temperature2: 30,
-            day: 'SUNDAY'
-        },
-        {
-            id: 1,
-            temperature1: 23,
-            temperature2: 30,
-            day: 'MONDAY'
-        },
-        {
-            id: 2,
-            temperature1: 23,
-            temperature2: 30,
-            day: 'TUESDAY'
-        },
-        {
-            id: 3,
-            temperature1: 23,
-            temperature2: 30,
-            day: 'WEDNESDAY'
-        },
-        {
-            id: 4,
-            temperature1: 23,
-            temperature2: 30,
-            day: 'THURSDAY'
-        },
-        {
-            id: 5,
-            temperature1: 23,
-            temperature2: 30,
-            day: 'FRIDAY'
-        },
-        {
-            id: 6,
-            temperature1: 23,
-            temperature2: 30,
-            day: 'SATURDAY'
-        },
-
-    ]
+    const DAY = useSelector(state => state.myCounter.DAY)
+    const [list, setlistitem] = useState()
+    const storeData = async (value, name) => {
+        try {
+            await AsyncStorage.setItem(name, JSON.stringify(value))
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    const getData = async (name, set) => {
+        try {
+            const value = await AsyncStorage.getItem(name)
+            return value != null ? set(JSON.parse(value)) : []
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    useEffect(() => {
+        storeData(DAY, 'list')
+        getData('list', setlistitem)
+    }, [])
     const Item = ({ temperature1, temperature2, day }) => (
         <View style={styles.view_item}>
             <Text style={styles.item_day}>{day}</Text>
@@ -88,7 +66,6 @@ export default function App({ navigation }) {
     );
     return (
         <ScrollView style={styles.full}>
-
             <ImageBackground styles={styles.image} source={require('../../static/images/weather.jpeg')}>
                 <LinearGradient colors={['rgba(0, 0, 0, 0) ,', 'rgba(0, 0, 0, 0.5)']} deg={180}  >
                     <View style={styles.view_image}>
@@ -124,7 +101,7 @@ export default function App({ navigation }) {
             </ImageBackground>
             <FlatList
                 numColumns={1}
-                data={DATA}
+                data={list}
                 renderItem={renderItem}
                 showsHorizontalScrollIndicator={false}
             />

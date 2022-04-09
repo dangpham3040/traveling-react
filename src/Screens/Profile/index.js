@@ -16,79 +16,34 @@ import {
     Image,
     ScrollView,
     TouchableOpacity,
-
-
 } from 'react-native';
 import Header from '../../Components/header'
 import { Colors } from '../../Utils/Color';
 import { styles } from './styles';
+import { useSelector, useDispatch } from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function App({ navigation }) {
-    const DATA = [
-        {
-            id: 0,
-            pic: require('../../static/images/Silder1.jpeg'),
-            position: 0,
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            name_place: 'SAIGON CENTRAL POST OFFICE'
-        },
-        {
-            id: 1,
-            pic: require('../../static/images/Silder2.jpeg'),
-            position: 1,
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            name_place: 'SAIGON CENTRAL POST OFFICE'
-        },
-        {
-            id: 2,
-            pic: require('../../static/images/Silder3.png'),
-            position: 2,
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            name_place: 'SAIGON CENTRAL POST OFFICE'
-        },
-        {
-            id: 3,
-            pic: require('../../static/images/Silder4.jpeg'),
-            position: 3,
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            name_place: 'SAIGON CENTRAL POST OFFICE'
-        },
-        {
-            id: 4,
-            pic: require('../../static/images/Silder5.jpeg'),
-            position: 4,
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            name_place: 'SAIGON CENTRAL POST OFFICE'
-        },
-        {
-            id: 5,
-            pic: require('../../static/images/Silder6.jpeg'),
-            position: 5,
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            name_place: 'SAIGON CENTRAL POST OFFICE'
-        },
-        {
-            id: 6,
-            pic: require('../../static/images/Silder7.jpeg'),
-            position: 6,
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            name_place: 'SAIGON CENTRAL POST OFFICE'
-        },
-        {
-            id: 7,
-            pic: require('../../static/images/Silder8.jpeg'),
-            position: 7,
-            temperature: 30,
-            place: 'Q1, Ho Chi Minh City',
-            name_place: 'SAIGON CENTRAL POST OFFICE'
-        },
-    ]
+    const DATA = useSelector(state => state.myCounter.DATA)
+    const [list, setlistitem] = useState()
+    const storeData = async (value, name) => {
+        try {
+            await AsyncStorage.setItem(name, JSON.stringify(value))
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    const getData = async (name, set) => {
+        try {
+            const value = await AsyncStorage.getItem(name)
+            return value != null ? set(JSON.parse(value)) : []
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    useEffect(() => {
+        storeData(DATA, 'list')
+        getData('list', setlistitem)
+    }, [])
     const Item = ({ pic, name }) => (
         <View style={styles.view_item}>
             <Image style={styles.item} source={pic} />
@@ -100,7 +55,7 @@ export default function App({ navigation }) {
 
     );
     const renderItem = ({ item }) => (
-        <Item pic={item.pic} position={item.position} name={item.name_place} />
+        <Item pic={item.pic} position={list.indexOf(item)} name={item.name} />
     );
     return (
         <ScrollView style={styles.full}>
@@ -124,7 +79,7 @@ export default function App({ navigation }) {
             <View>
                 <FlatList
                     numColumns={1}
-                    data={DATA}
+                    data={list}
                     renderItem={renderItem}
                     showsHorizontalScrollIndicator={false}
                 />

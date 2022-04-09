@@ -26,7 +26,6 @@ export default function App({ pic, name }) {
                 <Text style={styles.mustdo}>MUST DO</Text>
                 <Text style={styles.item_name}>{name}</Text>
             </View>
-         
             <Heart fill={Colors.primary} style={styles.Heart}/>
         </View>
 
