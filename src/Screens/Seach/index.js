@@ -21,7 +21,6 @@ import {
 } from 'react-native';
 import Header from '../../Components/header'
 import Seach from '../../Icons/seach'
-import Heart from '../../Icons/heart_item'
 import { styles } from './styles';
 import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
