@@ -15,6 +15,12 @@ import Main from './maintab'
 import Seach from '../Screens/Seach'
 import HotNew from '../Screens/Hot_New'
 import Forgot_Password from '../Screens/Forgot_Password'
+import Emergency from '../Screens/Emergency'
+import Embassy from '../Screens/Embassy'
+import Safety from '../Screens/Safety'
+import Language from '../Screens/language'
+import Money_Changers from '../Screens/Money_Changers'
+import Visa from '../Screens/Visa'
 import Category from '../Screens/Category'
 import Favorite from '../Screens/Favorite'
 import Trip_Plan from '../Screens/Trip_Plan'
@@ -41,6 +47,12 @@ export default function App() {
                 <Stack.Screen name="Favorite" component={Favorite} options={{ headerShown: false }} />
                 <Stack.Screen name="Trip_Plan" component={Trip_Plan} options={{ headerShown: false }} />
                 <Stack.Screen name="Tab" component={Main} options={{ headerShown: false }} />
+                <Stack.Screen name="Emergency" component={Emergency} options={{ headerShown: false }} />
+                <Stack.Screen name="Safety" component={Safety} options={{ headerShown: false }} />
+                <Stack.Screen name="Visa" component={Visa} options={{ headerShown: false }} />
+                <Stack.Screen name="Embassy" component={Embassy} options={{ headerShown: false }} />
+                <Stack.Screen name="Language" component={Language} options={{ headerShown: false }} />
+                <Stack.Screen name="Money_Changers" component={Money_Changers} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
 

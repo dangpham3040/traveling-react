@@ -5,7 +5,6 @@ import { Colors } from '../../Utils/Color';
 export const styles = StyleSheet.create({
     view_header: {
         height: 62,
-        backgroundColor: '#fff',
         width: '100%',
         position: 'relative',
         flexDirection: 'row',

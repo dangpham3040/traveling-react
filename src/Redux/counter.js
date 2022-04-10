@@ -1,4 +1,3 @@
-
 const init = {
     Email: '',
     Password: '',
@@ -6,6 +5,7 @@ const init = {
     Confirm_Password: '',
     isfist: false,
     islogin: true,
+    isdim: false,
     DATA: [
         {
             id: 0,
@@ -214,6 +214,64 @@ const init = {
         },
 
     ],
+    Country: [
+        {
+            name: 'USA',
+            currency: 'USD',
+            pic: require('../static/images/usa.png'),
+        },
+        {
+            name: 'Brunei',
+            currency: 'BND',
+            pic: require('../static/images/Brunei.png'),
+        },
+        {
+            name: 'Canada',
+            currency: 'CND',
+            pic: require('../static/images/Canada.png'),
+        },
+        {
+            name: 'Brazil',
+            currency: 'BRL',
+            pic: require('../static/images/Brazil.png'),
+        },
+        {
+            name: 'Denmark',
+            currency: 'DKK',
+            pic: require('../static/images/Denmark.png'),
+        },
+        {
+            name: 'Bangladesh',
+            currency: 'USD',
+            pic: require('../static/images/Bangladesh.png'),
+        },
+        {
+            name: 'Belgium',
+            currency: 'BHD',
+            pic: require('../static/images/Belgium.png'),
+        },
+        {
+            name: 'Bahrain',
+            currency: 'BHD',
+            pic: require('../static/images/Bahrain.png'),
+        },
+        {
+            name: 'Australia',
+            currency: 'AUD',
+            pic: require('../static/images/Australia.png'),
+        },
+        {
+            name: 'China',
+            currency: 'CNY',
+            pic: require('../static/images/China.png'),
+        },
+        {
+            name: 'Japan',
+            currency: 'JPY',
+            pic: require('../static/images/Japan.png'),
+        },
+
+    ],
     TYPES: ['ALL', 'Must Do', 'Eat & Drink', 'Festival & Event', 'Stay', 'Transportation'],
     DAYNUMBER: ['1', '2', '3', '4', '5', '6', '7'],
 }
@@ -237,6 +295,9 @@ export function counterReducer(state = init, action) {
             return state;
         case "login":
             state.islogin = true
+            return state;
+        case "set_dim":
+            state.isdim ? state.isdim = false : state.isdim = true
             return state;
         default:
             return state;

@@ -13,8 +13,8 @@ export const Colors = {
     eleven: '#2e2e2e',
     twelveth: '#1F82C8',
     thirteenth: '#FBBB4A',
+    fourteenth: '#ECECEC',
     dim: '#797979',
-    button: '#2F88FF'
-
-
+    button: '#2F88FF',
+    check_Language: '#FFCEC9'
 }

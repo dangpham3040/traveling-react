@@ -16,14 +16,17 @@ import {
     Image,
     ScrollView,
     TouchableOpacity,
+    Modal
 } from 'react-native';
 import Logo from '../../Icons/logo_company'
 import Button_more from '../../Components/button_more'
 import { Colors } from '../../Utils/Color';
 import { styles } from './styles';
+
 export default function App({ navigation }) {
     const name = 'Bruno'
     const data = ['About Us', 'Free Walking Tour', 'Review App', 'VISA', 'Safety', 'Emergency', 'Embassy', 'money changers', 'language', 'Logout']
+
     const renderItem = ({ item }) => (
         <Button_more name={item} type={data.indexOf(item)} />
     );
@@ -54,6 +57,7 @@ export default function App({ navigation }) {
             <View style={styles.logo}>
                 <Logo />
             </View>
+          
         </View>
     );
 }
