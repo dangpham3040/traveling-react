@@ -6,47 +6,27 @@ export const styles = StyleSheet.create({
     full: {
         backgroundColor: Colors.second,
     },
-    item: {
-        flexDirection: 'column'
+
+    Image_header: {
+        height: 250, width: Dimensions.get('window').width,
     },
-    dot: {
-        paddingHorizontal: 8
-    },
-    view_dot:
-    {
-        flexDirection: 'row',
-        marginBottom: 73
-    },
-    ImageBackground: {
-        height: 300, width: Dimensions.get('window').width,
-    },
-    Goback: {
-        position: 'absolute',
-        top: 24,
-        alignSelf: 'flex-start',
-        marginLeft: 30
-    },
-    view_item: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        flex: 1
-    },
+
     frames: {
         width: 383,
-        height: 126,
+        height: 238,
         position: 'absolute',
         backgroundColor: Colors.second,
-        marginTop: 240,
-        left: 15,
-        right: 15,
+        marginTop: 190,
+        left: 16,
+        right: 16,
         borderRadius: 5,
         borderColor: Colors.nine,
         borderWidth: 1,
         paddingLeft: 15,
         paddingTop: 14,
-        marginBottom:30
-        
+        marginBottom: 30,
+        paddingBottom: 14,
+        lineHeight: 18
     },
     shadow: {
         shadowColor: "#EDEDED",
@@ -58,28 +38,22 @@ export const styles = StyleSheet.create({
         shadowRadius: 10,
         elevation: 20,
     },
-    view_star: {
-        flexDirection: 'row',
 
-    },
-    Star: {
-        marginRight: 4
-    },
     title: {
         fontWeight: '800',
-        fontSize: 14,
+        fontSize: 16,
         textTransform: 'uppercase',
         color: Colors.eighth,
         marginTop: 7,
-        marginBottom: 12
+        marginBottom: 12,
+        flexWrap: 'wrap',
+        marginRight: 135
     },
-    view_datetime: {
-        flexDirection: 'row',
-        marginTop: 2,
-    },
-    list: {
-        height: 370,
-        backgroundColor:Colors.second
+
+    view_header: {
+        height: 430,
+        backgroundColor: Colors.second,
+
     },
     frames_text: {
         fontWeight: '700',
@@ -105,16 +79,10 @@ export const styles = StyleSheet.create({
     view_Description: {
         marginLeft: 30,
     },
-    view_all: {
-        marginTop: 24,
-        height: 10000,
-
-    },
     text_Description: {
         color: Colors.eleven,
         fontWeight: '800',
         fontSize: 12,
-
     },
     Description: {
         color: Colors.eighth,
@@ -130,15 +98,6 @@ export const styles = StyleSheet.create({
         color: Colors.primary,
 
     },
-    map_image: {
-        width: '100%',
-        height: 190,
-        marginTop: 24,
-        marginBottom: 18
-    },
-    view_address: {
-        marginHorizontal: 30
-    },
     line:
     {
         width: '100%',
@@ -146,79 +105,50 @@ export const styles = StyleSheet.create({
         borderBottomWidth: 1,
         marginBottom: 6
     },
-    text1: {
-        fontWeight: '700',
-        color: Colors.eleven,
-        fontSize: 12,
-
+    header: {
+        position: 'absolute',
+        top: 0,
+        flex: 1
     },
-    text2: {
+    header_food_and_drink: {
+        color: Colors.eighth,
         fontWeight: '400',
+        fontSize: 12
+    },
+    header_time: {
+        color: Colors.primary,
         fontSize: 12,
-        color: Colors.fourth,
-        marginTop: 4,
-        marginBottom: 6
-    },
-    view_Comment: {
-        marginHorizontal: 30,
-
-    },
-    list_Comment: {
-        marginHorizontal: 30
-    },
-    add_Comment: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        borderBottomColor: Colors.third,
-        borderBottomWidth: 1,
-        paddingBottom: 7.5,
-        marginHorizontal: 30,
-
-    },
-    input: {
-        color: Colors.third,
-        fontSize: 14,
         fontWeight: '400'
     },
-    send: {
-        marginRight: 30
-    },
-    view_whatnew: {
-        marginHorizontal: 30
-    },
-    ImageBackground_new: {
-        width: 140,
-        height: 120,
-        borderRadius: 5,
-        marginLeft: 30,
-        marginRight: -18,
-        justifyContent: 'flex-end',
-        marginBottom: 30
-    },
-    name_new: {
-        color: Colors.second,
-        textTransform: 'uppercase',
-        fontWeight: '800',
-        fontSize: 14,
-        paddingLeft: 10,
-        paddingBottom: 5
-
-    },
-    new_must: {
-        color: Colors.second,
+    header_context: {
         fontSize: 12,
         fontWeight: '400',
-        paddingLeft: 10,
-        marginBottom: 2,
+        color: Colors.eighth,
+        marginTop: 6
+    },
+    body: {
+        marginHorizontal: 30,
 
     },
-    header:{
-        position:'absolute',
-        top:0,
-        flex:1
+    body_title: {
+        color: Colors.primary,
+        textTransform: 'uppercase',
+        fontSize: 14,
+        fontWeight: '700',
+        marginVertical: 24,
+
     },
-    view:{
-        flex:1
+    Image_body: {
+        height: 150,
+        borderRadius: 5,
+        width: '100%'
+    },
+    body_dec: {
+        color: Colors.eighth,
+        fontWeight: '400',
+        fontSize: 12,
+        lineHeight: 18,
+        flexWrap: 'wrap',
+        marginVertical: 12
     }
 })

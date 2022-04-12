@@ -52,7 +52,7 @@ export default function App() {
         }
     }
     const Item = ({ pic, position }) => (
-        <ImageBackground source={pic} style={styles.ImageBackground}>
+        <ImageBackground source={pic} style={styles.Image_header}>
             <View style={styles.view_item}>
 
                 <TouchableOpacity style={styles.Goback} onPress={() => navigation.goBack()}>
@@ -112,102 +112,38 @@ export default function App() {
     }
 
     return (
-        <View style={styles.view}>
-            <View >
-                <FlatList
-                    style={styles.list}
-                    numColumns={1}
-                    data={list}
-                    renderItem={renderItem}
-                    keyExtractor={item => item.id}
-                    horizontal={true}
-                    scrollEnabled
-                    showsHorizontalScrollIndicator={false}
-                    pagingEnabled
-                    bounces={false}
-                />
+        <ScrollView style={styles.full}>
+            <View style={styles.view_header}>
+                <Image source={require('../../static/images/content1.jpeg')} style={styles.Image_header} />
                 <View style={[styles.frames, styles.shadow]}>
-                    <View style={styles.view_star}>
-                        <Star style={styles.Star} fill={Colors.thirteenth} />
-                        <Star style={styles.Star} fill={Colors.thirteenth} />
-                        <Star style={styles.Star} fill={Colors.thirteenth} />
-                        <Star style={styles.Star} fill={Colors.thirteenth} />
-                        <Star style={styles.Star} />
-                    </View>
-                    <Text style={styles.title}>SAIGON CENTRAL POST OFFICE</Text>
-                    <View style={styles.view_datetime}>
-                        <View style={styles.view_frames}>
-                            <Calendar />
-                            <View style={styles.frames_view_text}>
-                                <Text style={styles.frames_text}>Opening Day</Text>
-                                <Text style={styles.frames_text_}>Sunday Mass is held
-                                    at 9:30am</Text>
-                            </View>
-                        </View>
-
-                        <Clock />
-                        <View style={styles.frames_view_text}>
-                            <Text style={styles.frames_text}>Opening Time</Text>
-                            <Text style={styles.frames_text_}>5:30am-5:00pm</Text>
-                        </View>
-
-                    </View>
+                    <Text style={styles.header_food_and_drink}>FOOD & DRINK</Text>
+                    <Text style={styles.title}>Discover 8 finest steakhouses in Saigon</Text>
+                    <Text style={styles.header_time}>15/10/2021</Text>
+                    <Text style={styles.header_context}>Beefsteak has always been the best-loved dish by the experience of cooking, displaying, or enjoying it. Here in HCM city, there are a number of steakhouses opened where meat-lovers can get a gorgeous cut of steak and join in a BBQ banquet. We’ve discovered those restaurants regarding review websites and local recommendations, and come up with a list of top steakhouses worth making a visit. Such a guilty pleasure galore!</Text>
                 </View>
             </View>
-            <ScrollView style={styles.full}>
+            <View style={styles.body}>
+                <Text style={styles.body_title}>El Gaucho</Text>
+                <Image source={require('../../static/images/content2.jpeg')} style={styles.Image_body} />
+                <Text style={styles.body_dec}>It's undoubtedly that El Gaucho deserves to be the top choice among other steakhouses, commonly recommended as a must-try venue for steak. Taking a look at recommendations, the steak here frequently gets outstanding reviews on the websites. The chef is definitely proud of the way they serve perfect steak, beginning from choosing the best ingredients only from the US and Australia and ending up with performing complex recipes to keep the softness and juiciness of the steak. The ambiance is pretty classy and elegant makes El Gaucho a suitable place for a romantic date, or even for family dinner and friends’ reunions.</Text>
 
-                <View style={styles.view_Description}>
-                    <Text style={styles.text_Description}>Description</Text>
-                    <Text style={styles.Description}>This twin towered cathedral is one of the most prominent architectural marvels in the city. It was built in 1877 with materials imported from France. </Text>
-                </View>
-                <TouchableOpacity>
-                    <Text style={styles.readmore}>Read more</Text>
-                </TouchableOpacity>
-                <Image source={require('../../static/images/map2.png')} style={styles.map_image} />
-                <View style={styles.view_address}>
-                    <Text style={styles.text1}>Address </Text>
-                    <Text style={styles.text2}>Cong Xa Paris, Ben Nghe, HCM</Text>
-                    <View style={styles.line} />
-                </View>
+          
+                <Image source={require('../../static/images/content3.jpeg')} style={styles.Image_body} />
+                <Text style={styles.body_dec}>IL CORDA Charcoal Steakhouse,{'\n'}
+                    11 Le Thanh Ton Street, Ward Ben Nghe, District 1
+                    Opening hours: 11:30am – 3:00pm | 5:00pm – 11:00pm</Text>
+                    <View style={styles.line}/>
+                    <Text style={styles.body_title}>IL CORDA Charcoal Steakhouse</Text>
+                <Image source={require('../../static/images/content4.jpeg')} style={styles.Image_body} />
+                <Text style={styles.body_dec}>It's undoubtedly that El Gaucho deserves to be the top choice among other steakhouses, commonly recommended as a must-try venue for steak. Taking a look at recommendations, the steak here frequently gets outstanding reviews on the websites. The chef is definitely proud of the way they serve perfect steak, beginning from choosing the best ingredients only from the US and Australia and ending up with performing complex recipes to keep the softness and juiciness of the steak. The ambiance is pretty classy and elegant makes El Gaucho a suitable place for a romantic date, or even for family dinner and friends’ reunions.</Text>
 
-                <View style={styles.view_address}>
-                    <Text style={styles.text1}>Website </Text>
-                    <Text style={styles.text2}>http://SAIGONCENTRALPOSTOFFICE.com</Text>
-                    <View style={styles.line} />
-                </View>
-                <View style={styles.view_Comment}>
-                    <Text style={styles.title}>Comment</Text>
-                </View>
-                <FlatList
-                    style={styles.list_Comment}
-                    numColumns={1}
-                    data={listc}
-                    renderItem={renderItem_Comment}
-                    showsHorizontalScrollIndicator={false}
-                />
-                <View style={styles.add_Comment}>
-                    <TextInput
-                        style={styles.input}
-                        placeholder={'Comment'}
-                    />
-                    <View style={styles.send}>
-                        <Send />
-                    </View>
-                </View>
-
-                <View style={styles.view_whatnew}>
-                    <Text style={styles.title}>What’s Nearby</Text>
-                </View>
-                <FlatList
-                    numColumns={1}
-                    data={list_new}
-                    renderItem={renderItem_new}
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    scrollEnabled
-                />
-            </ScrollView>
-        </View>
+          
+                <Image source={require('../../static/images/content5.jpeg')} style={styles.Image_body} />
+                <Text style={styles.body_dec}>IL CORDA Charcoal Steakhouse,{'\n'}
+                    11 Le Thanh Ton Street, Ward Ben Nghe, District 1
+                    Opening hours: 11:30am – 3:00pm | 5:00pm – 11:00pm</Text>
+            </View>
+        </ScrollView>
 
 
 

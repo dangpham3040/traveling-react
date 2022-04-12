@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState ,useContext} from 'react';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -26,6 +26,7 @@ import Map from '../Screens/Map'
 import Edit from '../Screens/Edit'
 import Favorite from '../Screens/Favorite'
 import Trip_Plan from '../Screens/Trip_Plan'
+import Page_Content from '../Screens/Page_Content'
 import { useSelector } from 'react-redux';
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -57,6 +58,7 @@ export default function App() {
                 <Stack.Screen name="Money_Changers" component={Money_Changers} options={{ headerShown: false }} />
                 <Stack.Screen name="Map" component={Map} options={{ headerShown: false }} />
                 <Stack.Screen name="Edit" component={Edit} options={{ headerShown: false }} />
+                <Stack.Screen name="Page_Content" component={Page_Content} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
 
