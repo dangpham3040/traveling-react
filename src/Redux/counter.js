@@ -272,6 +272,24 @@ const init = {
         },
 
     ],
+    WHATNEW:[
+        {
+            pic: require('../static/images/whatnew1.jpeg'),
+            name: 'SAIGON CENTRAL POST OFFICE',
+        },
+        {
+            pic: require('../static/images/whatnew2.jpeg'),
+            name: 'SAIGON CENTRAL POST OFFICE',
+        },
+        {
+            pic: require('../static/images/whatnew3.jpeg'),
+            name: 'SAIGON CENTRAL POST OFFICE',
+        },
+        {
+            pic: require('../static/images/whatnew4.jpeg'),
+            name: 'SAIGON CENTRAL POST OFFICE',
+        },
+    ],
     TYPES: ['ALL', 'Must Do', 'Eat & Drink', 'Festival & Event', 'Stay', 'Transportation'],
     DAYNUMBER: ['1', '2', '3', '4', '5', '6', '7'],
 }

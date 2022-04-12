@@ -37,13 +37,13 @@ export const styles = StyleSheet.create({
         width: 27,
         height: 20,
         marginRight: 24,
-        marginLeft:20
+        marginLeft: 20
     },
     name: {
         color: Colors.eighth,
         fontWeight: '400',
         fontSize: 12,
-        textTransform:'uppercase'
+        textTransform: 'uppercase'
     },
     icon: {
         flex: 1,
@@ -66,6 +66,21 @@ export const styles = StyleSheet.create({
     },
     item_choose: {
         backgroundColor: Colors.check_Language
+    },
+    item_type: {
+        marginLeft: 30,
+        borderRadius: 30,
+        borderColor: Colors.third,
+        borderWidth: 1,
+        height: 30,
+        paddingHorizontal:10,
+        marginRight:-16
+    },
+    item_type_name:{
+        padding:5,
+        fontWeight:'500',
+        fontSize:14,
+        color:Colors.third
     }
 
 })

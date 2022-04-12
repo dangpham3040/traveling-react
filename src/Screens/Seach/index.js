@@ -15,9 +15,6 @@ import {
     TextInput,
     Text,
     TouchableWithoutFeedback,
-    Image,
-    ImageBackground
-
 } from 'react-native';
 import Header from '../../Components/header'
 import Seach from '../../Icons/seach'
