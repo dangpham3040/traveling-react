@@ -18,6 +18,7 @@ import {
 import Hearder from '../../Components/hearder_info'
 import { Colors } from '../../Utils/Color';
 import { styles } from './styles';
+import { List } from 'semantic-ui-react'
 export default function App({ navigation }) {
     const value1 = [
         "As of Mar. 21, 2020, Vietnam will temporarily suspend visa exemptions for citizens from Belarus, Russia, and Japan."
@@ -43,16 +44,16 @@ export default function App({ navigation }) {
     ]
 
     const Item1 = ({ text }) => (
-        <Text style={styles.text}>- {text}</Text>
+        <Text style={styles.text}>• {text}</Text>
     );
     const renderItem1 = ({ item }) => (
         <Item1 text={item} />
     );
     const Item2 = ({ text, index }) => (
-        <Text style={styles.text}>{index+1}. {text}</Text>
+        <Text style={styles.text}>{index + 1}. {text}</Text>
     );
     const renderItem2 = ({ item }) => (
-        <Item2 text={item} index={value2.indexOf(item) } />
+        <Item2 text={item} index={value2.indexOf(item)} />
     );
     return (
         <ScrollView style={styles.full}>
@@ -68,6 +69,7 @@ export default function App({ navigation }) {
                     showsHorizontalScrollIndicator={false}
                     scrollEnabled={false}
                 />
+
                 <View style={styles.line} />
                 <Text style={[styles.text, styles.title]}>Vietnam Visa on Arrival</Text>
                 <Text style={styles.text}>If you are planning a multiple-entry visit or a stay of more than 30 days, you will want to apply for a visa on arrival. To do this you'll need:</Text>
@@ -96,12 +98,12 @@ export default function App({ navigation }) {
                     showsHorizontalScrollIndicator={false}
                     scrollEnabled={false}
                 />
-                    <Text style={styles.text}>Step 2: Click this link or access www.immigration.gov.vn and go to 'E-visa Issuance' then click on the link for 'Outside Vietnam foreigners'.   </Text>
-                    <Text style={styles.text}>Step 3: Upload your .jpg images (passport data page and passport photo) and fill out the required fields on the form completely. Submit your form. </Text>
-                    <Text style={styles.text}>Step 4: Pay the e-Visa fee of 25 USD. Copy down the document code provided. </Text>
-                    <Text style={styles.text}>Step 5: Within three working days you should receive news of your e-Visa application via email. If not, you can also run a search for your e-Visa at this link. </Text>
-                    <Text style={styles.text}>Step 6: Use your document code to locate your e-Visa online. Download and print the e-Visa in two copies for extra safety. </Text>
-                    
+                <Text style={styles.text}>Step 2: Click this link or access www.immigration.gov.vn and go to 'E-visa Issuance' then click on the link for 'Outside Vietnam foreigners'.   </Text>
+                <Text style={styles.text}>Step 3: Upload your .jpg images (passport data page and passport photo) and fill out the required fields on the form completely. Submit your form. </Text>
+                <Text style={styles.text}>Step 4: Pay the e-Visa fee of 25 USD. Copy down the document code provided. </Text>
+                <Text style={styles.text}>Step 5: Within three working days you should receive news of your e-Visa application via email. If not, you can also run a search for your e-Visa at this link. </Text>
+                <Text style={styles.text}>Step 6: Use your document code to locate your e-Visa online. Download and print the e-Visa in two copies for extra safety. </Text>
+
             </View>
         </ScrollView>
     );

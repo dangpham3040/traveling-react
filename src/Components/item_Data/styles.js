@@ -20,8 +20,9 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 10,
         flexWrap: "wrap",
-        marginRight: 40,
-        fontWeight: '700'
+        marginRight: 30,
+        fontWeight: '700',
+        textTransform:'uppercase'
     },
     view_item: {
         flex: 1,

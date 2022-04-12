@@ -3,13 +3,13 @@ import { StyleSheet } from "react-native";
 import { Colors } from '../../Utils/Color';
 
 export const styles = StyleSheet.create({
-    view:{
+    view: {
         backgroundColor: Colors.second,
-        height:224,
-        width:354,
+        height: 224,
+        width: 354,
         flexDirection: 'column',
-        padding:12,
-        borderRadius:5,
+        padding: 12,
+        borderRadius: 5,
     },
     shadow: {
         shadowColor: "rgba(0, 0, 0, 0.1)",
@@ -20,34 +20,45 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.51,
         shadowRadius: 10,
         elevation: 20,
-        borderRadius:5
+        borderRadius: 5
     },
-    trip1:{
-        height:165,
-        width:191,
-        marginRight:8
+    trip1: {
+        height: 165,
+        width: 191,
+        marginRight: 8
     },
-    trip23:{
+    trip23: {
         flexDirection: 'column',
 
     },
-    trip2:{
-        width:130,
-        height:80,
-        marginBottom:5
+    trip2: {
+        width: 130,
+        height: 80,
+        marginBottom: 5
 
     },
-    view_image:{
+    view_image: {
         flexDirection: 'row'
     },
-    day:{
+    day: {
         color: Colors.primary,
         fontWeight: '400',
-        fontSize:10
+        fontSize: 10,
+        marginTop: 7
     },
-    name:{
-    color:Colors.eighth,
-    fontSize:12,
-    fontWeight:'800'
+    name: {
+        color: Colors.eighth,
+        fontSize: 12,
+        fontWeight: '800'
+    },
+    num: {
+        color: Colors.second,
+        textAlign: 'center',
+    },
+    view_num:{
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:'rgba(0, 0, 0, 0.8)',
+        height: 80,
     }
 })

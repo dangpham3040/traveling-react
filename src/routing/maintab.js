@@ -26,6 +26,7 @@ import HeartIcon from '../Icons/heart'
 import Share from '../Icons/share'
 import Img from '../Icons/image'
 import Add from '../Icons/more'
+import Category from '../Screens/Category'
 import { Colors } from '../Utils/Color';
 
 export default function App() {
@@ -36,7 +37,7 @@ export default function App() {
         < Tab.Navigator
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
-                    if (route.name === 'Home') {
+                    if (route.name === 'Home'||route.name === 'Category') {
                         return <HomeIcon size={size} color={srceen === 0 ? Colors.second : Colors.eighth} fill={color} stroke={srceen === 0 ? Colors.primary : Colors.eighth} />;
                     } else if (route.name === 'My Trip') {
                         return <HeartIcon size={size} color={srceen === 1 ? Colors.primary : Colors.eighth} fill={color} stroke={srceen === 1 ? Colors.primary : Colors.eighth} />;

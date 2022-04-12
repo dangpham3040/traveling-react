@@ -220,8 +220,9 @@ export default function App({ navigation }) {
                             </View>
                         </View>
                     </View>
-                    <Image source={require('../../static/images/map.png')} style={styles.map_image} />
-
+                    <TouchableWithoutFeedback onPress={() => navigation.navigate('Map')} >
+                        <Image source={require('../../static/images/map.png')} style={styles.map_image} />
+                    </TouchableWithoutFeedback>
                 </ScrollView> :
                 <Loading />
             }

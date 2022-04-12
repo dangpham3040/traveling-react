@@ -19,23 +19,25 @@ import { styles } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { Colors } from '../../Utils/Color';
 export default function App({ name, type, dec, pic }) {
-
+    const navigation = useNavigation()
     return (
-        <ImageBackground style={styles.view_item} source={pic} imageStyle={{ borderRadius: 5 }}>
-            <View style={styles.Heart}>
-                <Heart stroke={Colors.second} />
-            </View>
-            {type === 0 ?
-                <View style={styles.view_item_text}>
-                    <Text style={styles.text_item}>{dec}</Text>
-                    <Text style={styles.item_name_dec}>{name}</Text>
-                </View> :
-                <View style={styles.view_item_text}>
-                    <Text style={styles.text_item}>{dec}</Text>
-                    <Text style={styles.item_name_dec}>{name}</Text>
+        <TouchableOpacity onPress={()=>navigation.navigate('Edit')}>
+            <ImageBackground style={styles.view_item} source={pic} imageStyle={{ borderRadius: 5 }}>
+                <View style={styles.Heart}>
+                    <Heart stroke={Colors.second} />
                 </View>
-            }
-        </ImageBackground>
+                {type === 0 ?
+                    <View style={styles.view_item_text}>
+                        <Text style={styles.text_item}>{dec}</Text>
+                        <Text style={styles.item_name}>{name}</Text>
+                    </View> :
+                    <View style={styles.view_item_text}>
+                        <Text style={styles.text_item}>{dec}</Text>
+                        <Text style={styles.item_name_dec}>{name}</Text>
+                    </View>
+                }
+            </ImageBackground>
+        </TouchableOpacity>
 
     )
 

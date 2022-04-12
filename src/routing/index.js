@@ -22,6 +22,8 @@ import Language from '../Screens/language'
 import Money_Changers from '../Screens/Money_Changers'
 import Visa from '../Screens/Visa'
 import Category from '../Screens/Category'
+import Map from '../Screens/Map'
+import Edit from '../Screens/Edit'
 import Favorite from '../Screens/Favorite'
 import Trip_Plan from '../Screens/Trip_Plan'
 import { useSelector } from 'react-redux';
@@ -53,6 +55,8 @@ export default function App() {
                 <Stack.Screen name="Embassy" component={Embassy} options={{ headerShown: false }} />
                 <Stack.Screen name="Language" component={Language} options={{ headerShown: false }} />
                 <Stack.Screen name="Money_Changers" component={Money_Changers} options={{ headerShown: false }} />
+                <Stack.Screen name="Map" component={Map} options={{ headerShown: false }} />
+                <Stack.Screen name="Edit" component={Edit} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
 
