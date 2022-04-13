@@ -80,7 +80,7 @@ export const styles = StyleSheet.create({
 
     },
     shadow: {
-        shadowColor: "#EDEDED",
+        shadowColor: "rgba(0, 0, 0, 0.1)",
         shadowOffset: {
             width: 1,
             height: 2,

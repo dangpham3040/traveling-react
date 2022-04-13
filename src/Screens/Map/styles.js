@@ -73,14 +73,19 @@ export const styles = StyleSheet.create({
         borderColor: Colors.third,
         borderWidth: 1,
         height: 30,
-        paddingHorizontal:10,
-        marginRight:-16
+        paddingHorizontal: 10,
+        marginRight: -16,
+        marginBottom:30
     },
-    item_type_name:{
-        padding:5,
-        fontWeight:'500',
-        fontSize:14,
-        color:Colors.third
+    item_type_name: {
+        padding: 5,
+        fontWeight: '500',
+        fontSize: 14,
+        color: Colors.third
+    },
+    img_sty: {
+        height: 761,
+        width: 414,
     }
 
 })

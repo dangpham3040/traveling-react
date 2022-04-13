@@ -163,7 +163,7 @@ export default function App() {
                 <TouchableOpacity>
                     <Text style={styles.readmore}>Read more</Text>
                 </TouchableOpacity>
-                <Image source={require('../../static/images/map2.png')} style={styles.map_image} />
+                <Image source={require('../../static/images/map_edit.png')} style={styles.map_image} />
                 <View style={styles.view_address}>
                     <Text style={styles.text1}>Address </Text>
                     <Text style={styles.text2}>Cong Xa Paris, Ben Nghe, HCM</Text>
