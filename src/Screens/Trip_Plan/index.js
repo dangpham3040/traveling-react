@@ -11,8 +11,6 @@ import React, { useEffect, useState } from 'react';
 import {
     Text,
     View,
-    SafeAreaView,
-    TouchableOpacity,
     Image,
     ScrollView,
     FlatList,
@@ -59,7 +57,7 @@ export default function App() {
     );
     const Item_type = ({ name, index }) => (
         <TouchableWithoutFeedback onPress={() => setPosition(index)}>
-            <View style={[styles.view_item, styles.item, position === index ? styles.item_choose : null]}>
+            <View style={[styles.view_item, position === index ? styles.item_choose : null]}>
                 <Text style={styles.text_item} >Day {name}</Text>
             </View>
         </TouchableWithoutFeedback>
@@ -67,7 +65,7 @@ export default function App() {
     const renderItem = ({ item, }) => (
         <Item_trip_plan pic={item.pic} position={list.indexOf(item)} name={item.name} />
     );
-   
+
     return (
         <View style={styles.full}>
             <Header name={'Trip Plan'} />
@@ -89,13 +87,14 @@ export default function App() {
                 </View>
                 <TextInput style={{ flex: 1 }} />
             </View>
-            <ScrollView style={styles.data}>
+
             <FlatList
+                style={styles.data}
                 numColumns={1}
                 data={list}
                 renderItem={renderItem}
+                showsVerticalScrollIndicator={false}
             />
-            </ScrollView>
             <Image source={require('../../static/images/map.png')} style={styles.map_image} />
         </View>
 

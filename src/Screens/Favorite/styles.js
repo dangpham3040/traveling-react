@@ -52,15 +52,12 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 22
     },
     modalView: {
-        height: 503,
+        height: 600,
         width: 354,
         borderRadius: 5,
-        margin: 20,
         backgroundColor: "white",
-        borderRadius: 20,
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -73,7 +70,7 @@ export const styles = StyleSheet.create({
     },
     button_model: {
         elevation: 2,
-        height: 40,
+        height: 39,
         width: 140,
         padding: 10,
         borderRadius: 300
@@ -103,15 +100,17 @@ export const styles = StyleSheet.create({
         marginLeft: 12
     },
     view_button: {
-        marginTop: 24,
+       position:'absolute',
         flexDirection: 'row',
         justifyContent: 'space-between',
+        bottom:15
 
     },
     Cancel_model: {
         alignSelf: 'flex-end',
         marginRight: 30,
-        marginTop: 20
+        marginTop: 20,
+        marginBottom: 24
     },
     input: {
         paddingLeft: 10,
@@ -119,9 +118,10 @@ export const styles = StyleSheet.create({
         borderColor: Colors.third,
         width: 300,
         alignSelf: 'center',
-        marginTop: 24,
+        marginBottom: 24,
         color: Colors.fourteenth,
         fontSize: 12,
         fontWeight: '400'
-    }
+    },
+   
 })

@@ -21,7 +21,8 @@ export const styles = StyleSheet.create({
         flexDirection: 'column',
         marginLeft: 12,
         marginTop: 12,
-        width: 192
+        width: 192,
+       
     },
     mustdo: {
         fontWeight: '400',
@@ -33,6 +34,7 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '800',
         flexWrap: 'wrap',
+        width:122,
     },
     Icon: {
         position: 'absolute',

@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     },
     map_image: {
         marginTop: 24,
-        height: 216,
+        height: 180,
         width: 414,
     },
     name_city: {
@@ -25,15 +25,12 @@ export const styles = StyleSheet.create({
         color: Colors.eighth,
         fontWeight: '500',
         fontSize: 14,
-
     },
     item_choose: {
         backgroundColor: Colors.fifth,
         borderBottomColor: Colors.eighth
     },
-    item: {
 
-    },
     view_item: {
         width: 100,
         height: 36,

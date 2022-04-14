@@ -22,6 +22,7 @@ import {
 } from 'react-native';
 import Item_going_trip from '../../Components/item_going_trip'
 import Going_trip from '../../Components/going_trip'
+import Calendar from '../../Components/calendar'
 import Cancel from '../../Icons/cancel'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { styles } from './styles';
@@ -85,6 +86,7 @@ export default function App({ navigation }) {
                         </TouchableOpacity>
                         <TextInput style={styles.input} placeholder={'Trip Name'} />
                         <TextInput style={styles.input} placeholder={'Select date (up to 7 days)'} />
+                       <Calendar/>
                         <View style={styles.view_button}>
                             <TouchableOpacity
                                 style={[styles.button_model, styles.buttonColor1]}
