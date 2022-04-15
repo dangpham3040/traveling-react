@@ -86,5 +86,8 @@ export const styles = StyleSheet.create({
         marginHorizontal: 5,
         flexWrap: 'wrap',
         textAlign: 'center'
+    },
+    item_choose:{
+        color:Colors.primary
     }
 })

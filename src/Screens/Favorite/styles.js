@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
         textTransform: 'uppercase'
     },
     text_title: {
-        marginTop: 24,
+        marginVertical: 24,
         color: Colors.eleven,
         fontSize: 18,
         fontWeight: '800',

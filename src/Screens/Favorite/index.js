@@ -61,7 +61,7 @@ export default function App({ navigation }) {
         <Item_going_trip pic={item.pic} position={DATA.indexOf(item)} name={item.name} />
     );
     return (
-        <ScrollView style={styles.full}>
+        <View style={styles.full}>
             <View style={styles.header}>
                 <Text style={styles.header_text}>My Trip</Text>
                 <Image source={require('../../static/images/avt.jpeg')} style={styles.avatar} imageStyle={{ borderRadius: 50 }} />
@@ -108,7 +108,7 @@ export default function App({ navigation }) {
                     </View>
                 </View>
             </Modal>
-        </ScrollView>
+        </View>
     );
 }
 

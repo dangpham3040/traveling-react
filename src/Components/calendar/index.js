@@ -48,7 +48,10 @@ export default function App({ name, type }) {
     function isLeapYear(year) {
         return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
     }
-
+    function info(y, m, d) {
+        const dates = new Date(y, m, d)
+        return dates
+    }
     const days = isLeapYear(date.getFullYear()) ? DAYS_LEAP : DAYS;
     return (
         <View style={styles.Frame}>
@@ -75,20 +78,24 @@ export default function App({ name, type }) {
                     ))}
                 </View>
                 <View style={styles.view_day}>
-                    {Array(days[month] + (startDay - 1))
-                        .fill(null)
-                        .map((_, index) => {
-                            var month_befor = days[month - 1]
-                            var d = index - (startDay - 1);
-                            var bd = d + month_befor
-                            var ad = 1
-                            return (
-                                <>
-                                    {d <= 0 ? <Text style={styles.item_bday}>{bd}</Text> : <Text style={styles.item_day}>{d}</Text>}
-                                    
-                                </>
-                            );
-                        })}
+                    {
+                        Array(35)
+                            .fill(null)
+                            .map((_, index) => {
+                                var month_befor = days[month - 1]
+                                var d = index - (startDay - 1);
+                                var bd = d + month_befor
+                                var ad = d - days[month]
+                                return (
+                                    <>
+                                        {d <= 0 ? <Text style={[styles.item_bday, day == d ? styles.item_choose : null]} onPress={() => setDate(info(year, month, d))}>{bd}</Text>
+                                            : d > days[month] ?
+                                                <Text style={[styles.item_bday, day == d ? styles.item_choose : null]} onPress={() => setDate(info(year, month, d))}>{ad}</Text>
+                                                : <Text style={[styles.item_day, day == d ? styles.item_choose : null]} onPress={() => setDate(info(year, month, d))}>{d}</Text>}
+                                    </>
+                                );
+                            })
+                    }
                 </View>
             </View>
         </View>
