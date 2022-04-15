@@ -42,12 +42,12 @@ export default function App() {
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
                     if (route.name === 'Home' || route.name === 'Category') {
-                        return <HomeIcon size={size} color={srceen === 0 ? Colors.second : Colors.eighth} fill={color} stroke={srceen === 0 ? Colors.primary : Colors.eighth} />;
-                    } else if (route.name === 'My Trip'||route.name === 'Trip_Plan') {
-                        return <HeartIcon size={size} color={srceen === 1 ? Colors.primary : Colors.eighth} fill={color} stroke={srceen === 1 ? Colors.primary : Colors.eighth} />;
+                        return <HomeIcon size={size} color={srceen === 0 ? Colors.second : Colors.eighth} fill={srceen === 0 ? Colors.primary : Colors.second} stroke={srceen === 0 ? Colors.primary : Colors.eighth} />;
+                    } else if (route.name === 'My Trip' || route.name === 'Trip_Plan') {
+                        return <HeartIcon size={size} color={srceen === 1 ? Colors.primary : Colors.eighth} fill={srceen === 1 ? Colors.primary : Colors.second} stroke={srceen === 1 ? Colors.primary : Colors.eighth} />;
                     }
                     else if (route.name === 'Ask - Share') {
-                        return <Share size={size} color={srceen === 2 ? Colors.primary : Colors.eighth} fill={color} stroke={srceen === 2 ? Colors.primary : Colors.eighth} />;
+                        return <Share size={size} color={srceen === 2 ? Colors.primary : Colors.eighth} fill={srceen === 2 ? Colors.primary : Colors.second} stroke={srceen === 2 ? Colors.primary : Colors.eighth} />;
                     }
                     else if (route.name === 'Gallery') {
                         return <Img size={size} color={srceen === 3 ? Colors.primary : Colors.eighth} stroke={srceen === 3 ? Colors.primary : Colors.eighth} />;
@@ -60,7 +60,7 @@ export default function App() {
             }
             tabBarOptions={{
                 activeTintColor: Colors.primary,
-                inactiveTintColor: Colors.second,
+                inactiveTintColor: Colors.eighth,
             }}>
             <Tab.Screen name="Home" component={HomeStack} options={{ headerShown: false, }}
                 listeners={() => ({

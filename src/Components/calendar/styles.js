@@ -70,6 +70,15 @@ export const styles = StyleSheet.create({
 
     },
     item_day: {
+        color: Colors.eighth,
+        height: 15,
+        width: 25,
+        marginVertical: 16,
+        marginHorizontal: 5,
+        flexWrap: 'wrap',
+        textAlign: 'center'
+    },
+    item_bday: {
         color: Colors.third,
         height: 15,
         width: 25,

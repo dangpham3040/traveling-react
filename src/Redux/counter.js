@@ -272,7 +272,7 @@ const init = {
         },
 
     ],
-    WHATNEW:[
+    WHATNEW: [
         {
             pic: require('../static/images/whatnew1.jpeg'),
             name: 'SAIGON CENTRAL POST OFFICE',
@@ -313,6 +313,9 @@ export function counterReducer(state = init, action) {
             return state;
         case "login":
             state.islogin = true
+            return state;
+        case "logout":
+            state.islogin = false
             return state;
         case "set_dim":
             state.isdim ? state.isdim = false : state.isdim = true

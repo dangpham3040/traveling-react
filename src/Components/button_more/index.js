@@ -30,6 +30,7 @@ import Logout from '../../Icons/logout'
 import allReducter from '../../Redux';
 import { useNavigation } from '@react-navigation/native';
 import { createStore } from 'redux';
+
 export default function App({ name, type }) {
     const store = createStore(allReducter);
     const navigation = useNavigation();
@@ -48,31 +49,31 @@ export default function App({ name, type }) {
             break;
         case 3:
             icon = <Visa />
-            handl=()=>{navigation.navigate('Visa')}
+            handl = () => { navigation.navigate('Visa') }
             break;
         case 4:
             icon = <Safety />
-            handl=()=>{navigation.navigate('Safety')}
+            handl = () => { navigation.navigate('Safety') }
             break;
         case 5:
             icon = <Emergency />
-            handl=()=>{navigation.navigate('Emergency')}
+            handl = () => { navigation.navigate('Emergency') }
             break;
         case 6:
             icon = <Embassy />
-            handl=()=>{navigation.navigate('Embassy')}
+            handl = () => { navigation.navigate('Embassy') }
             break;
         case 7:
             icon = <Money_changers />
-            handl=()=>{navigation.navigate('Money_Changers')}
+            handl = () => { navigation.navigate('Money_Changers') }
             break;
         case 8:
             icon = <Language />
-            handl=()=>{navigation.navigate('Language')}
+            handl = () => { navigation.navigate('Language') }
             break;
         case 9:
             icon = <Logout />
-            handl=()=>{setModalVisible(!modalVisible)}
+            handl = () => { setModalVisible(!modalVisible) }
             break;
     }
 
@@ -100,7 +101,9 @@ export default function App({ name, type }) {
                             </TouchableOpacity>
                             <TouchableOpacity
                                 style={[styles.button, styles.buttonColor2]}
-                                onPress={() => setModalVisible(!modalVisible)}  >
+                                onPress={() => setModalVisible(!modalVisible) & store.dispatch({
+                                    type: 'logout'
+                                })}  >
                                 <Text style={styles.textStyle}>YES</Text>
                             </TouchableOpacity>
                         </View>

@@ -78,12 +78,15 @@ export default function App({ name, type }) {
                     {Array(days[month] + (startDay - 1))
                         .fill(null)
                         .map((_, index) => {
-                            const d = index - (startDay - 2);
+                            var month_befor = days[month - 1]
+                            var d = index - (startDay - 1);
+                            var bd = d + month_befor
+                            var ad = 1
                             return (
                                 <>
-                                    <Text style={styles.item_day}>{d}</Text>
+                                    {d <= 0 ? <Text style={styles.item_bday}>{bd}</Text> : <Text style={styles.item_day}>{d}</Text>}
+                                    
                                 </>
-
                             );
                         })}
                 </View>

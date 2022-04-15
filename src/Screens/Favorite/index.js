@@ -51,6 +51,11 @@ export default function App({ navigation }) {
     useEffect(() => {
         storeData(DATA, 'list')
         getData('list', setlistitem)
+        const unsubscribe = navigation.addListener('focus', () => {
+            setModalVisible(false)
+          });
+          return unsubscribe;
+      
     }, [])
     const renderItem = ({ item, }) => (
         <Item_going_trip pic={item.pic} position={DATA.indexOf(item)} name={item.name} />
