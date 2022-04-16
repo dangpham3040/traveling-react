@@ -1,3 +1,4 @@
+const today = new Date();
 const init = {
     Email: '',
     Password: '',
@@ -292,8 +293,10 @@ const init = {
     ],
     TYPES: ['ALL', 'Must Do', 'Eat & Drink', 'Festival & Event', 'Stay', 'Transportation'],
     DAYNUMBER: ['1', '2', '3', '4', '5', '6', '7'],
+    starday: today,
+    endday: today
 }
-
+const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 export function counterReducer(state = init, action) {
     switch (action.type) {
         case "set_fist":
@@ -319,6 +322,12 @@ export function counterReducer(state = init, action) {
             return state;
         case "set_dim":
             state.isdim ? state.isdim = false : state.isdim = true
+            return state;
+        case 'starday':
+            state.starday = action.day
+            return state;
+        case 'endday':
+            state.endday = action.day
             return state;
         default:
             return state;

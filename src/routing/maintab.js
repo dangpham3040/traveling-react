@@ -61,7 +61,8 @@ export default function App() {
             tabBarOptions={{
                 activeTintColor: Colors.primary,
                 inactiveTintColor: Colors.eighth,
-            }}>
+            }}
+            >
             <Tab.Screen name="Home" component={HomeStack} options={{ headerShown: false, }}
                 listeners={() => ({
                     tabPress: () => {

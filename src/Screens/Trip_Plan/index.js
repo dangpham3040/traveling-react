@@ -29,8 +29,11 @@ export default function App() {
     const [position, setPosition] = useState(0)
     const TYPE = useSelector(state => state.myCounter.DAYNUMBER)
     const DATA = useSelector(state => state.myCounter.DATA)
+    const starday = useSelector(state => state.myCounter.starday)
+    const endday = useSelector(state => state.myCounter.endday)
     const [list, setlistitem] = useState()
     const [list_type, setlistitem_type] = useState()
+    const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     const storeData = async (value, name) => {
         try {
             await AsyncStorage.setItem(name, JSON.stringify(value))
@@ -70,7 +73,7 @@ export default function App() {
         <View style={styles.full}>
             <Header name={'Trip Plan'} />
             <Text style={styles.name_city}>Ho Chi Minh</Text>
-            <Text style={styles.day}>10 Oct - 15 Oct</Text>
+            <Text style={styles.day}>{starday.getDate() + " " + MONTHS[starday.getMonth()]} - {endday.getDate() + " " + MONTHS[endday.getMonth()]}</Text>
             <FlatList
                 style={styles.listday}
                 numColumns={1}

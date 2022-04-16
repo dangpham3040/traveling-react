@@ -20,8 +20,18 @@ import Drop_down from '../../Icons/drop_down'
 import Goback from '../../Icons/prev'
 import Goto from '../../Icons/next'
 import { Colors } from '../../Utils/Color';
+import allReducter from '../../Redux';
 import { createStore } from 'redux';
-export default function App({ name, type }) {
+import { useDispatch, useSelector } from 'react-redux';
+
+export default function App() {
+    const store = createStore(allReducter);
+    const dispatch = useDispatch();
+    const endday = useSelector(state => state.myCounter.endday)
+    const starday = useSelector(state => state.myCounter.starday)
+    var one_day = 1000 * 60 * 60 * 24
+
+
     const DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const DAYS_LEAP = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const DAYS_OF_THE_WEEK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
@@ -50,7 +60,20 @@ export default function App({ name, type }) {
     }
     function info(y, m, d) {
         const dates = new Date(y, m, d)
+        var Result = Math.round(dates.getTime() - starday.getTime()) / (one_day);
+        if (Result <= 7 && Result > 0) {
+            store.dispatch({ type: 'endday', day: dates })
+            setDate(dates)
+        } else {
+            alert('incorrect value !!')
+        }
         return dates
+    }
+    function checkday(y, m, d) {
+        if (y == endday.getFullYear() && m == endday.getMonth() && endday.getDate() == d) {
+            return true
+        }
+        return false
     }
     const days = isLeapYear(date.getFullYear()) ? DAYS_LEAP : DAYS;
     return (
@@ -88,10 +111,10 @@ export default function App({ name, type }) {
                                 var ad = d - days[month]
                                 return (
                                     <>
-                                        {d <= 0 ? <Text style={[styles.item_bday, day == d ? styles.item_choose : null]} onPress={() => setDate(info(year, month, d))}>{bd}</Text>
+                                        {d <= 0 ? <Text style={[styles.item_bday, checkday(year, month, d) ? styles.item_choose : null]} onPress={() => info(year, month - 1, d)}>{bd}</Text>
                                             : d > days[month] ?
-                                                <Text style={[styles.item_bday, day == d ? styles.item_choose : null]} onPress={() => setDate(info(year, month, d))}>{ad}</Text>
-                                                : <Text style={[styles.item_day, day == d ? styles.item_choose : null]} onPress={() => setDate(info(year, month, d))}>{d}</Text>}
+                                                <Text style={[styles.item_bday, checkday(year, month, d) ? styles.item_choose : null]} onPress={() => info(year, month + 1, d)}>{ad}</Text>
+                                                : <Text style={[styles.item_day, checkday(year, month, d) ? styles.item_choose : null]} onPress={() => info(year, month, d)}>{d}</Text>}
                                     </>
                                 );
                             })
