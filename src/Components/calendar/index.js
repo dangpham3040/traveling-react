@@ -64,14 +64,26 @@ export default function App() {
         if (Result <= 7 && Result > 0) {
             store.dispatch({ type: 'endday', day: dates })
             setDate(dates)
+            checkday(y, m, d)
         } else {
             alert('incorrect value !!')
         }
         return dates
     }
     function checkday(y, m, d) {
-        if (y == endday.getFullYear() && m == endday.getMonth() && endday.getDate() == d) {
-            return true
+        const dates = new Date(y, m, d)
+        var Result = Math.round(dates.getTime() - starday.getTime()) / (one_day);
+        if (y == endday.getFullYear() && m == endday.getMonth()) {
+            if (d == endday.getDate()) {
+                return true
+            }
+            if (d == starday.getDate()) {
+                return true
+            }
+            if (d > starday.getDate() && d < endday.getDate()) {
+                return true
+            }
+            return false
         }
         return false
     }
