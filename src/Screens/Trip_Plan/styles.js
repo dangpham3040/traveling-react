@@ -5,7 +5,9 @@ import { Colors } from '../../Utils/Color';
 export const styles = StyleSheet.create({
     full: {
         backgroundColor: Colors.second,
-        flex: 1
+        flex: 1,
+        justifyContent:'center',
+        alignItems:'center'
     },
     map_image: {
         marginTop: 24,

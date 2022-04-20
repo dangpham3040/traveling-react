@@ -28,6 +28,7 @@ export default function App({ navigation }) {
     const [position, setPosition] = useState(1)
     const [list, setlistitem] = useState()
     const [list_type, setlistitem_type] = useState()
+    const [FilteredDataSource, setFilteredDataSource] = useState()
     const storeData = async (value, name) => {
         try {
             await AsyncStorage.setItem(name, JSON.stringify(value))
@@ -43,11 +44,28 @@ export default function App({ navigation }) {
             console.log(e);
         }
     }
+    const handleSearch = (text) => {
+        if (text) {
+            const newData = list.filter(function (item) {
+                const itemData = item.dec
+                    ? item.dec.toUpperCase()
+                    : ''.toUpperCase();
+                const textData = text.toUpperCase();
+                return itemData.indexOf(textData) > -1;
+            });
+            setFilteredDataSource(newData);
+        }
+        else {
+            Keyboard.dismiss();
+            setFilteredDataSource(DATA);
+        }
+    };
     useEffect(() => {
         storeData(TYPE, 'list_type')
         getData('list_type', setlistitem_type)
         storeData(DATA, 'list')
         getData('list', setlistitem)
+        setFilteredDataSource(DATA)
     }, [])
     const renderItem_type = ({ item }) => (
         <Item_type name={item} index={list_type.indexOf(item) + 1} />
@@ -67,7 +85,7 @@ export default function App({ navigation }) {
                 <View style={styles.Seach}>
                     <Seach />
                 </View>
-                <TextInput style={{ flex: 1 }} />
+                <TextInput style={{ flex: 1 }} onChangeText={e=>handleSearch(e)}/>
             </View>
             <FlatList
                 numColumns={1}
@@ -81,7 +99,7 @@ export default function App({ navigation }) {
 
             <FlatList
                 numColumns={1}
-                data={list}
+                data={FilteredDataSource}
                 renderItem={renderItem}
                 showsHorizontalScrollIndicator={false}
             />

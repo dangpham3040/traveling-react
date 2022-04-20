@@ -72,22 +72,21 @@ export const styles = StyleSheet.create({
         width: 354,
         height: 50,
 
-        marginRight: 32,
-        marginLeft: 32,
         marginTop: 205,
         borderColor: Colors.nine,
         borderWidth: 1,
-
+        width:'90%',
+        alignSelf:'center'
     },
     shadow: {
         shadowColor: "rgba(0, 0, 0, 0.1)",
         shadowOffset: {
-            width: 1,
-            height: 2,
+            width: 0,
+            height: 0,
         },
-        shadowOpacity: 0.51,
+      
         shadowRadius: 10,
-        elevation: 20,
+        elevation: 10,
     },
     Seach: {
         padding: 15

@@ -1,12 +1,13 @@
+
 const today = new Date();
 const init = {
     Email: '',
     Password: '',
     Username: '',
     Confirm_Password: '',
-    isfist: false,
-    islogin: true,
-    isdim: false,
+    isfist: true,
+    islogin: false,
+    isdim: 0,
     DATA: [
         {
             id: 0,
@@ -301,7 +302,7 @@ export function counterReducer(state = init, action) {
     switch (action.type) {
         case "set_fist":
             state.isfist = false
-            return state;
+            return {...state};
         case "set_Email":
             state.Email = action.Email;
             return state;
@@ -321,7 +322,7 @@ export function counterReducer(state = init, action) {
             state.islogin = false
             return state;
         case "set_dim":
-            state.isdim ? state.isdim = false : state.isdim = true
+            state.isdim =1
             return state;
         case 'starday':
             state.starday = action.day

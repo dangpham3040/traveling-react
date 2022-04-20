@@ -61,7 +61,7 @@ export default function App() {
     function info(y, m, d) {
         const dates = new Date(y, m, d)
         var Result = Math.round(dates.getTime() - starday.getTime()) / (one_day);
-        if (Result <= 7 && Result > 0) {
+        if (Result < 6 && Result > 0) {
             store.dispatch({ type: 'endday', day: dates })
             setDate(dates)
             checkday(y, m, d)
@@ -71,8 +71,6 @@ export default function App() {
         return dates
     }
     function checkday(y, m, d) {
-        const dates = new Date(y, m, d)
-        var Result = Math.round(dates.getTime() - starday.getTime()) / (one_day);
         if (y == endday.getFullYear() && m == endday.getMonth()) {
             if (d == endday.getDate()) {
                 return true

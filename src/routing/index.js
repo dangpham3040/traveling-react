@@ -1,4 +1,4 @@
-import React, { useEffect, useState ,useContext} from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -34,12 +34,16 @@ export default function App() {
     const islogin = useSelector(state => state.myCounter.islogin)
     return (
         <NavigationContainer>
+            {islogin ?
+                <Stack.Navigator>
+                    <Stack.Screen name="Sign_in_up" component={Sign_in_up} options={{ headerShown: false }} />
+                    <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
+                </Stack.Navigator> :
+                null}
             <Stack.Navigator>
-                {isfists ? <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} /> : null}
-                {islogin ? <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} /> : null}
-                <Stack.Screen name="Sign_in_up" component={Sign_in_up} options={{ headerShown: false }} />
+                {isfists ? <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} /> :  null}
+                <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
                 <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
-                <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
                 <Stack.Screen name="Edit_Profile" component={Edit_Profile} options={{ headerShown: false }} />
                 <Stack.Screen name="Setiing" component={Setiing} options={{ headerShown: false }} />
                 <Stack.Screen name="Change_Password" component={Change_Password} options={{ headerShown: false }} />
@@ -60,6 +64,7 @@ export default function App() {
                 <Stack.Screen name="Edit" component={Edit} options={{ headerShown: false }} />
                 <Stack.Screen name="Page_Content" component={Page_Content} options={{ headerShown: false }} />
             </Stack.Navigator>
+
         </NavigationContainer>
 
     );

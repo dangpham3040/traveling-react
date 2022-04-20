@@ -8,14 +8,6 @@
 
 import React, { useEffect, useState } from 'react';
 
-import {
-    Text,
-    View,
-    TouchableOpacity
-
-} from 'react-native';
-
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../Screens/Home'
 import Favorite from '../Screens/Favorite'
 import Question from '../Screens/Question'
@@ -31,6 +23,7 @@ import Add from '../Icons/more'
 import Category from '../Screens/Category'
 import { Colors } from '../Utils/Color';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Stack = createNativeStackNavigator();
 export default function App() {
     const Tab = createBottomTabNavigator()

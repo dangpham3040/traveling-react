@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     full: {
         backgroundColor: Colors.second,
         flex: 1,
-        padding: 30
+        paddingHorizontal: '2%'
     },
     avatar: {
         width: 60,
@@ -100,10 +100,10 @@ export const styles = StyleSheet.create({
         marginLeft: 12
     },
     view_button: {
-       position:'absolute',
+        position: 'absolute',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        bottom:15
+        bottom: 15
 
     },
     Cancel_model: {
@@ -121,7 +121,13 @@ export const styles = StyleSheet.create({
         marginBottom: 24,
         color: Colors.fourteenth,
         fontSize: 12,
-        fontWeight: '400'
+        fontWeight: '400',
+        color: Colors.eighth,
+
     },
-   
+    margin: {
+
+     
+    }
+
 })

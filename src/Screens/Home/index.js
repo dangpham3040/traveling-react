@@ -68,7 +68,6 @@ export default function App({ navigation }) {
         getData('list_topplace', setlistitem_topplace)
         storeData(TOPPOP, 'list_toppop')
         getData('list_toppop', setlistitem_toppop)
-
     }, [])
     var _dot = [];
     const find = (u) => {

@@ -73,10 +73,10 @@ export default function App() {
                     {find(position)}
                     {_dot}
                 </View>
-                {position === 2 ? <Goto style={styles.goto} onPress={() => navigation.navigate('Sign_in_up') &
-                    store.dispatch({
-                        type: 'set_fist'
-                    })} /> : null}
+                {position === 2 ? <Goto style={styles.goto} onPress={() => store.dispatch({
+                    type: 'set_fist'
+                }) & navigation.navigate('Main')
+                } /> : null}
 
             </View>
 
