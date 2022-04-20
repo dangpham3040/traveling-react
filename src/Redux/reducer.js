@@ -326,11 +326,9 @@ const setfist = async (text) => {
     try {
         const jsonValue = JSON.stringify(text)
         await AsyncStorage.setItem('isfist', jsonValue)
-
     } catch (e) {
         alert(e)
     }
-
 }
 export function rootReducer(state = init, action) {
     switch (action.type) {

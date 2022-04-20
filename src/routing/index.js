@@ -31,7 +31,7 @@ import { useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 const Stack = createNativeStackNavigator();
 export default function App() {
-    const [isfists, setisfists] = useState(true)
+    const [isfists, setisfists] = useState()
     const islogin = useSelector(state => state.root.islogin)
     const getfist = async () => {
         try {
@@ -46,7 +46,7 @@ export default function App() {
     };
     useEffect(() => {
         getfist()
-    }, [isfists]);
+    }, [ getfist()]);
     return (
         <NavigationContainer>
             {islogin ?
