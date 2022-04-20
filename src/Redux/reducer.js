@@ -5,7 +5,7 @@ const init = {
     Password: '',
     Username: '',
     Confirm_Password: '',
-    isfist: false,
+    isfist: true,
     islogin: false,
     isdim: 0,
     DATA: [

@@ -29,9 +29,10 @@ import Trip_Plan from '../Screens/Trip_Plan'
 import Page_Content from '../Screens/Page_Content'
 import { useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const Stack = createNativeStackNavigator();
 export default function App() {
-    const [isfists, setisfists] = useState()
+    const [isfists, setisfists] = useState(true)
     const islogin = useSelector(state => state.root.islogin)
     const getfist = async () => {
         try {
@@ -41,12 +42,12 @@ export default function App() {
                 setisfists(data)
             }
         } catch (e) {
-            // read error
+            console.log(e)
         }
     };
     useEffect(() => {
         getfist()
-    }, [ getfist()]);
+    }, [getfist()]);
     return (
         <NavigationContainer>
             {islogin ?
