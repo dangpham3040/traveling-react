@@ -37,8 +37,8 @@ export default function App() {
     const [list, setlistitem] = useState()
     const [list_Comment, setlist_Comment] = useState()
     const [list_new, setlist_new] = useState()
-    const DATA = useSelector(state => state.myCounter.DATA)
-    const WHATNEW = useSelector(state => state.myCounter.WHATNEW)
+    const DATA = useSelector(state => state.root.DATA)
+    const WHATNEW = useSelector(state => state.root.WHATNEW)
     var _dot = [];
     const find = (u) => {
         for (let i = 0; i < list.length; i++) {

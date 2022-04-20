@@ -1,11 +1,11 @@
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const today = new Date();
 const init = {
     Email: '',
     Password: '',
     Username: '',
     Confirm_Password: '',
-    isfist: true,
+    isfist: false,
     islogin: false,
     isdim: 0,
     DATA: [
@@ -292,17 +292,52 @@ const init = {
             name: 'SAIGON CENTRAL POST OFFICE',
         },
     ],
+    LANGUAGE: [{
+        name: 'Vietnam',
+        pic: require('../static/images/Vietnam.png'),
+    },
+    {
+        name: 'USA',
+        pic: require('../static/images/england.png'),
+    },
+    {
+        name: 'France',
+        pic: require('../static/images/France.png'),
+    },
+    {
+        name: 'Korea',
+        pic: require('../static/images/Korea.png'),
+    },
+    {
+        name: 'China',
+        pic: require('../static/images/China.png'),
+    },
+    {
+        name: 'Japan',
+        pic: require('../static/images/Japan.png'),
+    },
+    ],
     TYPES: ['ALL', 'Must Do', 'Eat & Drink', 'Festival & Event', 'Stay', 'Transportation'],
     DAYNUMBER: ['1', '2', '3', '4', '5', '6', '7'],
     starday: today,
     endday: today
 }
-const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-export function counterReducer(state = init, action) {
+const setfist = async (text) => {
+    try {
+        const jsonValue = JSON.stringify(text)
+        await AsyncStorage.setItem('isfist', jsonValue)
+
+    } catch (e) {
+        alert(e)
+    }
+
+}
+export function rootReducer(state = init, action) {
     switch (action.type) {
         case "set_fist":
             state.isfist = false
-            return {...state};
+            setfist(false)
+            return { ...state };
         case "set_Email":
             state.Email = action.Email;
             return state;
@@ -322,7 +357,7 @@ export function counterReducer(state = init, action) {
             state.islogin = false
             return state;
         case "set_dim":
-            state.isdim =1
+            state.isdim = 1
             return state;
         case 'starday':
             state.starday = action.day
@@ -334,7 +369,7 @@ export function counterReducer(state = init, action) {
             return state;
     }
 }
-export default counterReducer;
+export default rootReducer;
 
 
 

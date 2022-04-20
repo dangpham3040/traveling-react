@@ -22,6 +22,6 @@
 // export default store;
 
 import { combineReducers } from "redux";
-import { counterReducer } from "./counter";
-const allReducter = combineReducers({ myCounter:counterReducer });
+import { rootReducer } from "./reducer";
+const allReducter = combineReducers({ root:rootReducer });
 export default allReducter

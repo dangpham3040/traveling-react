@@ -28,10 +28,25 @@ import Favorite from '../Screens/Favorite'
 import Trip_Plan from '../Screens/Trip_Plan'
 import Page_Content from '../Screens/Page_Content'
 import { useSelector } from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const Stack = createNativeStackNavigator();
 export default function App() {
-    const isfists = useSelector(state => state.myCounter.isfist)
-    const islogin = useSelector(state => state.myCounter.islogin)
+    const [isfists, setisfists] = useState(true)
+    const islogin = useSelector(state => state.root.islogin)
+    const getfist = async () => {
+        try {
+            const jsonValue = await AsyncStorage.getItem('isfist');
+            if (jsonValue) {
+                const data = JSON.parse(jsonValue);
+                setisfists(data)
+            }
+        } catch (e) {
+            // read error
+        }
+    };
+    useEffect(() => {
+        getfist()
+    }, [isfists]);
     return (
         <NavigationContainer>
             {islogin ?
@@ -41,7 +56,7 @@ export default function App() {
                 </Stack.Navigator> :
                 null}
             <Stack.Navigator>
-                {isfists ? <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} /> :  null}
+                {isfists ? <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} /> : null}
                 <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
                 <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
                 <Stack.Screen name="Edit_Profile" component={Edit_Profile} options={{ headerShown: false }} />

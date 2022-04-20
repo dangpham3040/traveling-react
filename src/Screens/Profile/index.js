@@ -23,7 +23,7 @@ import { styles } from './styles';
 import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function App({ navigation }) {
-    const DATA = useSelector(state => state.myCounter.DATA)
+    const DATA = useSelector(state => state.root.DATA)
     const [list, setlistitem] = useState()
     const storeData = async (value, name) => {
         try {

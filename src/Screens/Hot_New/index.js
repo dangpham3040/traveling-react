@@ -27,7 +27,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LinearGradient from 'react-native-linear-gradient';
 export default function App({ navigation }) {
-    const DAY = useSelector(state => state.myCounter.DAY)
+    const DAY = useSelector(state => state.root.DAY)
     const [list, setlistitem] = useState()
     const storeData = async (value, name) => {
         try {

@@ -26,7 +26,7 @@ import Item_list from '../../Components/item_Data'
 import Must_Do from '../../Screens/Must_Do'
 import Eat_Drink from '../../Screens/Eat_And_Drink'
 export default function App({ route }) {
-    const DATA = useSelector(state => state.myCounter.DATA)
+    const DATA = useSelector(state => state.root.DATA)
     const [list, setlistitem] = useState()
     const storeData = async (value, name) => {
         try {

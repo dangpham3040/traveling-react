@@ -8,20 +8,20 @@ export const styles = StyleSheet.create({
         height: 130,
         width: 414,
         borderRadius: 5,
-        padding: 12,
+        padding: 5,
         marginBottom: 17,
         flexDirection: 'row'
 
     },
     shadow: {
-        shadowColor: "#EDEDED",
+        shadowColor: "rgba(0, 0, 0, 0.1)",
         shadowOffset: {
-            width: 1,
-            height: 2,
+            width: 0,
+            height: 0,
         },
-        shadowOpacity: 0.51,
         shadowRadius: 10,
-        elevation: 20,
+        elevation: 3,
+        shadowOpacity:2
     },
     img: {
         width: 112,

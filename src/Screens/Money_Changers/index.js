@@ -24,7 +24,7 @@ import { styles } from './styles';
 import { useSelector, useDispatch } from 'react-redux';
 
 export default function App({ navigation }) {
-    const Country = useSelector(state => state.myCounter.Country)
+    const Country = useSelector(state => state.root.Country)
 
     const Item = ({ name, pic, index, currency }) => (
         <View style={styles.item}>

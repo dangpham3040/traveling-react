@@ -84,9 +84,9 @@ export const styles = StyleSheet.create({
             width: 0,
             height: 0,
         },
-      
         shadowRadius: 10,
-        elevation: 10,
+        elevation: 3,
+        shadowOpacity:2
     },
     Seach: {
         padding: 15

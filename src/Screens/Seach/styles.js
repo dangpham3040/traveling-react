@@ -22,14 +22,14 @@ export const styles = StyleSheet.create({
         marginBottom: 24
     },
     shadow: {
-        shadowColor: "#EDEDED",
+        shadowColor: "rgba(0, 0, 0, 0.1)",
         shadowOffset: {
-            width: 1,
+            width: 0,
             height: 0,
         },
-        shadowOpacity: 0.51,
         shadowRadius: 10,
-        elevation: 20,
+        elevation: 3,
+        shadowOpacity:2
     },
     Seach: {
         padding: 15

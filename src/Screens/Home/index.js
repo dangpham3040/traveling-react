@@ -31,11 +31,11 @@ import Loading from '../../Components/loading'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function App({ navigation }) {
-    const DATA = useSelector(state => state.myCounter.DATA)
-    const TYPE = useSelector(state => state.myCounter.TYPE)
-    const HOTNEW = useSelector(state => state.myCounter.HOTNEW)
-    const TOPPLACE = useSelector(state => state.myCounter.TOPPLACE)
-    const TOPPOP = useSelector(state => state.myCounter.TOPPOP)
+    const DATA = useSelector(state => state.root.DATA)
+    const TYPE = useSelector(state => state.root.TYPE)
+    const HOTNEW = useSelector(state => state.root.HOTNEW)
+    const TOPPLACE = useSelector(state => state.root.TOPPLACE)
+    const TOPPOP = useSelector(state => state.root.TOPPOP)
     const [list, setlistitem] = useState()
     const [list_type, setlistitem_type] = useState()
     const [list_hotnew, setlistitem_hotnew] = useState()

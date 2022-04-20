@@ -24,7 +24,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { styles } from './styles';
 export default function App() {
-    const TYPE = useSelector(state => state.myCounter.TYPES)
+    const TYPE = useSelector(state => state.root.TYPES)
     const [list_type, setlistitem_type] = useState()
     const [position, setPosition] = useState(1)
     const renderItem_type = ({ item }) => (

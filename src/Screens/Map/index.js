@@ -26,7 +26,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 export default function App({ navigation }) {
 
-    const TYPE = useSelector(state => state.myCounter.TYPES)
+    const TYPE = useSelector(state => state.root.TYPES)
     const itemMap = [
         {
             name: 'SAIGON CENTRAL POST OFFICE',

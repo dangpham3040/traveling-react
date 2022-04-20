@@ -23,8 +23,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Item_list from '../../Components/item_Data'
 export default function App({ navigation }) {
-    const TYPE = useSelector(state => state.myCounter.TYPES)
-    const DATA = useSelector(state => state.myCounter.DATA)
+    const TYPE = useSelector(state => state.root.TYPES)
+    const DATA = useSelector(state => state.root.DATA)
     const [position, setPosition] = useState(1)
     const [list, setlistitem] = useState()
     const [list_type, setlistitem_type] = useState()

@@ -38,12 +38,6 @@ export default function App() {
     const store = createStore(allReducter);
     const dispatch = useDispatch();
 
-    const [email, setEmail] = useState('')
-    const [pass, setpass] = useState('')
-    const setifnfo = () => {
-        setEmail(useSelector(state => state.Email))
-        setpass(useSelector(state => state.Email))
-    }
     return (
         <SafeAreaView style={styles.full}>
             <View style={styles.logo}>

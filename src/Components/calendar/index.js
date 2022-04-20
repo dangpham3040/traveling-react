@@ -27,8 +27,8 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function App() {
     const store = createStore(allReducter);
     const dispatch = useDispatch();
-    const endday = useSelector(state => state.myCounter.endday)
-    const starday = useSelector(state => state.myCounter.starday)
+    const endday = useSelector(state => state.root.endday)
+    const starday = useSelector(state => state.root.starday)
     var one_day = 1000 * 60 * 60 * 24
 
 

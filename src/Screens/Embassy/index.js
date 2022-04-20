@@ -24,7 +24,7 @@ import { styles } from './styles';
 import { useSelector, useDispatch } from 'react-redux';
 
 export default function App({ navigation }) {
-    const Country = useSelector(state => state.myCounter.Country)
+    const Country = useSelector(state => state.root.Country)
     const [choose, setchoose] = useState()
     const handl_choose = (num = null) => {
         setchoose(num)

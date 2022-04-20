@@ -75,7 +75,7 @@ export default function App() {
                 </View>
                 {position === 2 ? <Goto style={styles.goto} onPress={() => store.dispatch({
                     type: 'set_fist'
-                }) & navigation.navigate('Main')
+                })&navigation.navigate("Main") 
                 } /> : null}
 
             </View>

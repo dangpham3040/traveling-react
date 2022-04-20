@@ -11,7 +11,9 @@ const persistConfig = {
   key: 'isfist',
   // Storage Method (React Native)
   storage: AsyncStorage,
-  whitelist: ['isfist']
+  whitelist: [
+    'isfist'
+  ],
 };
 
 // Middleware: Redux Persist Persisted Reducer
@@ -26,8 +28,6 @@ const store = createStore(
 // Middleware: Redux Persist Persister
 let persistor = persistStore(store);
 // Exports
-  
-
 export {
   store,
   persistor,

@@ -30,12 +30,12 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 export default function App({ navigation }) {
-    const DATA = useSelector(state => state.myCounter.DATA)
+    const DATA = useSelector(state => state.root.DATA)
+    const starday = useSelector(state => state.root.starday)
+    const endday = useSelector(state => state.root.endday)
+    const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     const [list, setlistitem] = useState()
     const [modalVisible, setModalVisible] = useState(false);
-    const starday = useSelector(state => state.myCounter.starday)
-    const endday = useSelector(state => state.myCounter.endday)
-    const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
     const storeData = async (value, name) => {
         try {

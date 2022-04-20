@@ -23,7 +23,7 @@ import { styles } from './styles';
 import { useSelector, useDispatch } from 'react-redux';
 
 export default function App({ navigation }) {
-    const Country = useSelector(state => state.myCounter.Country)
+    const Country = useSelector(state => state.root.LANGUAGE)
     const [choose, setchoose] = useState(0)
     const Item = ({ name, pic, index }) => (
         <TouchableOpacity style={[styles.item, choose === index ? styles.item_choose : null]} onPress={() => setchoose(index)}>

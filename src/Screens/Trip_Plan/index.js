@@ -27,10 +27,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function App() {
     const [position, setPosition] = useState(0)
-    const TYPE = useSelector(state => state.myCounter.DAYNUMBER)
-    const DATA = useSelector(state => state.myCounter.DATA)
-    const starday = useSelector(state => state.myCounter.starday)
-    const endday = useSelector(state => state.myCounter.endday)
+    const TYPE = useSelector(state => state.root.DAYNUMBER)
+    const DATA = useSelector(state => state.root.DATA)
+    const starday = useSelector(state => state.root.starday)
+    const endday = useSelector(state => state.root.endday)
     const [list, setlistitem] = useState()
     const [list_type, setlistitem_type] = useState()
     const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];

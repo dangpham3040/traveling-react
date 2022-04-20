@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
     full: {
         backgroundColor: Colors.second,
         flex: 1,
-
     },
     view: {
         paddingHorizontal: 30,
