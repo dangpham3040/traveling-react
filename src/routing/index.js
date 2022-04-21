@@ -33,6 +33,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Stack = createNativeStackNavigator();
 export default function App() {
     const [isfists, setisfists] = useState(true)
+    const [loading, setloading] = useState(true)
     const islogin = useSelector(state => state.root.islogin)
     const getfist = async () => {
         try {
@@ -40,6 +41,7 @@ export default function App() {
             if (jsonValue) {
                 const data = JSON.parse(jsonValue);
                 setisfists(data)
+                setloading(false)
             }
         } catch (e) {
             console.log(e)
@@ -47,17 +49,20 @@ export default function App() {
     };
     useEffect(() => {
         getfist()
-    }, [getfist()]);
+        
+    }, []);
     return (
         <NavigationContainer>
-            {islogin ?
-                <Stack.Navigator>
-                    <Stack.Screen name="Sign_in_up" component={Sign_in_up} options={{ headerShown: false }} />
-                    <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
-                </Stack.Navigator> :
-                null}
-            <Stack.Navigator>
-                {isfists ? <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} /> : null}
+            {loading ? null :
+                islogin ?
+                    <Stack.Navigator>
+                        <Stack.Screen name="Sign_in_up" component={Sign_in_up} options={{ headerShown: false }} />
+                        <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
+                    </Stack.Navigator> :
+                    null}
+            < Stack.Navigator >
+                {isfists ?
+                <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} /> : null}
                 <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
                 <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
                 <Stack.Screen name="Edit_Profile" component={Edit_Profile} options={{ headerShown: false }} />
@@ -81,7 +86,8 @@ export default function App() {
                 <Stack.Screen name="Page_Content" component={Page_Content} options={{ headerShown: false }} />
             </Stack.Navigator>
 
-        </NavigationContainer>
+
+        </NavigationContainer >
 
     );
 };
