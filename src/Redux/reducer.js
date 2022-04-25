@@ -320,7 +320,13 @@ const init = {
     TYPES: ['ALL', 'Must Do', 'Eat & Drink', 'Festival & Event', 'Stay', 'Transportation'],
     DAYNUMBER: ['1', '2', '3', '4', '5', '6', '7'],
     starday: today,
-    endday: today
+    endday: today,
+    location: {
+        latitude: 0,
+        longitude: 0,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+    }
 }
 const setfist = async (text) => {
     try {
@@ -363,6 +369,9 @@ export function rootReducer(state = init, action) {
         case 'endday':
             state.endday = action.day
             return state;
+        case 'set_location':
+            state.location = action.location
+            return state
         default:
             return state;
     }

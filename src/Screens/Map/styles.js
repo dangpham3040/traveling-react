@@ -85,6 +85,11 @@ export const styles = StyleSheet.create({
     img_sty: {
         height: 761,
         width: 414,
+    },
+    map : {
+        marginTop : 1,
+        width : "100%",
+        height: 500
     }
 
 })
