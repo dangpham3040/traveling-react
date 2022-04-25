@@ -17,21 +17,13 @@ import {
 
 import { styles } from './styles';
 import { useNavigation } from '@react-navigation/native';
-import { Colors } from '../../Utils/Color';
-import allReducter from '../../Redux';
-import { createStore } from 'redux';
-import { useSelector, useDispatch } from 'react-redux';
-export default function App({ name, pic, distance, address, _location }) {
+export default function App({ name, pic, distance, address, _location ,change_location}) {
     const navigation = useNavigation()
-    const store = createStore(allReducter);
-    const dispatch = useDispatch();
-    const l =  useSelector(state => state.root.location)
-  
+    const handlChange=()=>{
+        change_location(_location)
+    }
     return (
-        <TouchableOpacity onPress={() => store.dispatch({
-            type: 'set_location',
-            location: _location
-        })&console.log(l.latitude)}>
+        <TouchableOpacity onPress={handlChange}>
             <View style={[styles.item, styles.shadow]}>
                 <Image source={pic} style={styles.img} />
                 <View style={styles.body}>

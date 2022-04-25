@@ -41,44 +41,40 @@ const initCamera = {
 
 export default function App({ navigation }) {
 
-    // const [location , setlocation] = useState ({
-    //     _location : {
-    //         latitude: 0,
-    //         longitude: 1,
-    //         latitudeDelta: 0.0922,
-    //         longitudeDelta: 0.0421,
-    //     }
-    // })
-
+    const [location, setlocation] = useState(
+        {
+            latitude: 0,
+            longitude: 1,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+        }
+    )
     const TYPE = useSelector(state => state.root.TYPES)
-    const l =  useSelector(state => state.root.location)
-    const [temp,settemp]=useState()
-  
     const itemMap = [
         {
             name: 'SAIGON CENTRAL POST OFFICE',
             address: '123 Nguyen Huu Canh, Ward 22, Binh Thanh district',
             distance: 1,
             pic: require('../../static/images/map1.jpeg'),
-            _location : {
+            _location: {
                 latitude: 10.964112,
-            longitude: 106.856461,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+                longitude: 106.856461,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
             }
-            
-            
+
+
         },
         {
             name: 'Ben Thanh Maket',
             address: '123 Nguyen Huu Canh, Ward 22, Binh Thanh district',
             distance: 1,
             pic: require('../../static/images/map2.jpeg'),
-            _location : {
+            _location: {
                 latitude: 10.964112,
-            longitude: 106.856461,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+                longitude: 106.856461,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
             }
         },
         {
@@ -86,7 +82,7 @@ export default function App({ navigation }) {
             address: '123 Nguyen Huu Canh, Ward 22, Binh Thanh district',
             distance: 1,
             pic: require('../../static/images/map3.jpeg'),
-            _location : {
+            _location: {
                 latitude: 10.964112,
                 longitude: 106.856461,
                 latitudeDelta: 0.0922,
@@ -104,12 +100,11 @@ export default function App({ navigation }) {
         </View>
     );
     const renderItem_map = ({ item }) => (
-        <Item_map name={item.name} pic={item.pic} address={item.address} distance={item.distance} _location={item._location}/>
+        <Item_map name={item.name} pic={item.pic} address={item.address} distance={item.distance} _location={item._location} change_location={u => setlocation(u)} />
     );
-    useEffect(() => {
-        settemp(l.latitude)
-        // console.log(testw)
-    }, [])
+
+    console.log(location)
+
     return (
         <ScrollView style={styles.full}>
             <Hearder name={'Map'} ishave />
@@ -123,16 +118,16 @@ export default function App({ navigation }) {
                 pagingEnabled
             />
             <View>
-                
+
             </View>
-            <MapView style = {styles.map}
-                 showsUserLocation= {true}
-                 showsMyLocationButton={true}
-                 zoomControlEnabled={true}
+            <MapView style={styles.map}
+                showsUserLocation={true}
+                showsMyLocationButton={true}
+                zoomControlEnabled={true}
 
                 //  provider={PROVIDER_GOOGLE}
-                 // provider='google'
-                 initialCamera={initCamera}
+                // provider='google'
+                initialCamera={initCamera}
             >
                 {/* if ( {l.latitude}!=0) {
                      <Marker
@@ -140,10 +135,10 @@ export default function App({ navigation }) {
                      
                  /> */}
 
-                 
-                }
-               
-                
+
+                {/* } */}
+
+
             </MapView>
             <FlatList
                 numColumns={1}
